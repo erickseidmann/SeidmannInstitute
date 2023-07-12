@@ -90,7 +90,7 @@
 
           <h2 class="text-center">Welcome To Seidmann Institute</h2>
           <p></p>
-          <h5 class="lh-base" >A equipe Seidmann, sente muita alegria e satisfação por ter você estudando, crescendo e aprendendo conosco e queremos que saiba que estaremos dando nosso melhor para ajudar você a realizar seus sonhos e suas metas de aprender um novo idioma. E para melhor atender nossos alunos(as), segue alguns importantes tópicos e regras sobre pagamentos e cancelamentos de aulas, por favor caso tenha qualquer dúvida entrar em contato com a escola. Att. Equipe Seidmann</h5>
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark" >A equipe Seidmann, sente muita alegria e satisfação por ter você estudando, crescendo e aprendendo conosco e queremos que saiba que estaremos dando nosso melhor para ajudar você a realizar seus sonhos e suas metas de aprender um novo idioma. E para melhor atender nossos alunos(as), segue alguns importantes tópicos e regras sobre pagamentos e cancelamentos de aulas, por favor caso tenha qualquer dúvida entrar em contato com a escola. Att. Equipe Seidmann</h5>
         
           <p></p>
           
@@ -120,9 +120,14 @@
             <input class="form-control bg-light" type="text" id="telefone" name="telefone" required><br>
           </div>
           
-          <div class="col-md-4 ">
+          <div class="col-md-6 ">
           <label for="data_nascimento" class="form-label ">Data de nascimento:</label>
           <input class="form-control bg-light" type="date" id="data_nascimento" name="data_nascimento" required><br>
+          </div>
+
+          <div class="col-md-6 ">
+            <label for="email" class="form-label ">E-mail:</label>
+            <input class="form-control bg-light" type="email" id="email" name="email" required><br>
           </div>
           
 
@@ -203,11 +208,11 @@
              <!-- fimmmm INFORMAÇÕES SOBRE O ENDEREÇO -->
 
 <!-- data pagamento-->
-          <div class="row input-group col-md-6 fw-semibold ">
+          
           <p></p>
           <h3 class="text-center">Termos e Condições Seidmann Institute:</h3>
           <p></p>
-          <h5 class="lh-base">Dia do pagamento: Todos os pagamentos devem ser realizados até o dia acordado pelo aluno e o professor, caso caia em fim de semana ou feriado, devera ser feito no próximo dia.
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">Dia do pagamento: Todos os pagamentos devem ser realizados até o dia acordado pelo aluno e o professor, caso caia em fim de semana ou feriado, devera ser feito no próximo dia.
             Valores para cursos individuais: Valor hora/aula R$ 65,00; Valor, mensalidade para 1 h semanal R$ 260,00; Valor, mensalidade para 2 hs semanal R$ 500,00; valor, mensalidade para 2,5hs semanal R$ 600,00. Para cursos em grupos: Valor mensalidade para 2 hs semanal R$ 230,00 Valor, mensalidade para 2,5hs semanal R$ 280,00 POR integrante.
             **VALORES DE COMBOS DEVEM SER ESPECIFICADOS***
             Caso o aluno(a) não notifique a escola do atraso do pagamento, o aluno(a) fica sujeito a perca de descontos na mensalidade, ou seja, é cobrado a mensalidade sem descontos.</h5>
@@ -220,71 +225,63 @@
             <br>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="termos_condicoes" name="termos_condicoes" required>
-              <label class="form-check-label" for="termos_condicoes">Li e entendo os valores.</label><br>
+              <label class="form-check-label" for="termos_condicoes">Entendo e concordo.</label><br>
             </div>
-          </div>
+            <br>
+  
+
+                <h3 class="text-center">Cancelamento do curso:</h3>
+                <h5 class="lh-base p-3 mb-2 bg-light text-dark">O cancelamento do Curso deve ser realizado com ao menos uma semana antes da data de pagamento mensal, caso contrario  será cobrado uma taxa referente a uma semana de aula.</h5>
+                <br>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cancelamento_curso" name="cancelamento_curso[]" value="sim" required>
+                <label class="form-check-label" for="cancelamento_curso">Entendo e concordo. </label><br>
+              </div>
+              <br>
+         
 
 
 <!-- Reposição de aulas-->
-          <p></p>
-          <h3>Cancelamentos / Aulas perdidas / Troca de Horário / Reposição de aulas:</h3>
-          <p></p>
-          <h5 class="lh-base"> Cancelamentos: Os alunos têm direito a cancelamento de aula com reposição desde que cancele no dia anterior a aula.
-            Aulas perdidas: Uma aula é perdida quando o aluno(a) não realiza os cancelamentos com o tempo determinado de 6 horas antes da aula, a aula fica computada no sistema como perdida.
-            Troca de Horário e reposição de aulas: quando os alunos necessitam trocar um horário pode ser negociado diretamente com o Professor(a). As aulas de reposição devem ser feitas no prazo de até 1(um) mês, caso não seja realizado é computada como perdida não sendo cumulativo para o próximo mês.** com exceções para cancelamentos longos notificados com 1 mês de antecedência.</h5>
-          <p></p>
-          <div class="row input-group col-md-6 fw-semibold ">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input"  id="cancelamentos" name="cancelamentos[]" value="sim" required>
-              <label for="cancelamentos">Entendo e concordo que preciso cancelar minhas aulas com 6 horas de antecedência.</label><br>
-            </div>
-          </div>
-          <p></p>
-          <div class="row input-group col-md-6 fw-semibold ">
-            <div class="form-check">
-              <h3>Cancelamento do curso:</h3>
-              <h5 class="lh-base">O cancelamento do Curso deve ser realizado com ao menos uma semana antes da data de pagamento mensal, caso contrario  será cobrado uma taxa referente a uma semana de aula.</h5>
-              <input type="checkbox" id="cancelamento_curso" name="cancelamento_curso[]" value="sim" required>
-              <label for="cancelamento_curso">Entendo e concordo. </label><br>
-            </div>
-          </div>
 
           <p></p>
-          <div class="row input-group col-md-6 fw-semibold ">
-            <div class="form-check">
-          <h3>Férias / Feriados:</h3>
-            <h5 class="lh-base">Férias: A escola não faz ajustes nos valores para os meses de 5 semanas, mas para ajustar o banco de horas, a escola tem duas férias no ano, sendo a última semana do mês de julho e a última semana de dezembro e a primeira de janeiro. Totalizando 3 semanas e dois dias de férias por ano. Qualquer dúvida favor comunicar-se com o professor responsável.
+          
+            
+          <h3 class="text-center">Férias / Feriados:</h3>
+            <h5 class="lh-base p-3 mb-2 bg-light text-dark">Férias: A escola não faz ajustes nos valores para os meses de 5 semanas, mas para ajustar o banco de horas, a escola tem duas férias no ano, sendo a última semana do mês de julho e a última semana de dezembro e a primeira de janeiro. Totalizando 3 semanas e dois dias de férias por ano. Qualquer dúvida favor comunicar-se com o professor responsável.
             A escola não trabalha nos feriados nacionais, as únicas aulas que podem ser remanejadas são as aulas de 1 vez por semana.</h5>
-            <input type="checkbox" id="ferias" name="ferias[]" value="sim" required>
-            <label for="ferias">Entendo e concordo sobre as férias e os feriados.</label><br>
+              <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ferias" name="ferias[]" value="sim" required>
+            <label class="form-check-label" for="ferias">Entendo e concordo sobre as férias e os feriados.</label><br>
             <br>
           </div>   
           <br>
-          <h3>Material:</h3>
-          <h5 class="lh-base">Material: O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em PDF, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo. *</h5>
+          <h3 class="text-center" >Material:</h3>
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">Material: O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em PDF, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo. *</h5>
           <p></p>
-          <div class="row input-group col-md-6 fw-semibold ">
-            <div class="form-check">
+
+            
               <p></p>
           <h5>Por favor, selecione um livro.</h5>
-          <select id="opcao_livro" name="opcao_livro" required>
+          <div class="col-md-4 ">
+          <select class="form-select bg-light" id="opcao_livro" name="opcao_livro" required>
             <option value="selecione">selecione...</option>
             <option value="fisico">Livro fisico/ PDF / Audio. R$100,00</option>
             <option value="PDF">PDF / Audio R$80,00</option>
           </select><br>
-          <p></p>
+          </div>
+          <div class="form-check">
+          <input  class="form-check-input" type="checkbox" id="material" name="material[]" value="sim" required>
+          <label class="form-check-label" for="material">Li e entendo sobre o Material EPBL.</label><br>
           <br>
-          <input type="checkbox" id="material" name="material[]" value="sim" required>
-          <label for="material">Li e entendo sobre o Material EPBL.</label><br>
-          <br>
-        </div>
+          </div>
       
 
         <div class="row input-group col-md-6 fw-semibold ">
-          <h3>Data Pagamento</h3>
+          <h3 class="text-center">Data Pagamento</h3>
           
-          <h4 class="lh-base">A data deve ser a mesma acordada com professor, qualquer dúvida por favor entre em contato com o seu professor. *** Deve ser ao menos um dia antes do início das aulas **</h4>
-          <div class="col-md-4">
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">A data deve ser a mesma acordada com professor, qualquer dúvida por favor entre em contato com o seu professor. *** Deve ser ao menos um dia antes do início das aulas **</h5>
+          <div class="col-md-3">
           <label for="dia_pagamento">Dia acordado de pagamento da mensalidade:</label>
           <input class="form-control bg-light" type="date" id="dia_pagamento" name="dia_pagamento" required><br>
         </div>
@@ -292,51 +289,84 @@
 
 
 
-          <h3>Receber um lembrete de vencimento?</h3>
-          <h4 class="lh-base">Os lembretes são enviando sempre um dia antes do vencimento da mensalidade. Caso opte por não receber é importante lembrar que um atraso não notificado pode resultar em perca do desconto oferecido pela escola. </h4>
-          <input type="radio" id="lembrete_sim" name="lembrete" value="sim" required>
-          <label for="lembrete_sim">Sim</label>
-          <input type="radio" id="lembrete_nao" name="lembrete" value="nao" required>
-          <label for="lembrete_nao">Não</label><br>
-      
+          <h3 class="text-center">Receber um lembrete de vencimento?</h3>
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">Os lembretes são enviando sempre um dia antes do vencimento da mensalidade. Caso opte por não receber é importante lembrar que um atraso não notificado pode resultar em perca do desconto oferecido pela escola. </h5>
+        <br>
+          <div class="form-check">  
+          <input class="form-check-input" type="radio" id="lembrete_sim" name="lembrete" value="sim" required>
+          <label class="form-check-label" for="lembrete_sim">Sim</label>
+        </div>  
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="lembrete_nao" name="lembrete" value="nao" required>
+          <label class="form-check-label" for="lembrete_nao">Não</label><br>
+        </div>
+          <br>
+
+
+        <p></p>
+        <br>
+        <div class="row input-group col-md-6 fw-semibold ">
           <h3>Opção de pagamento:</h3>
-          <select id="opcao_pagamento" name="opcao_pagamento" required>
+          <div class="col-md-4 ">
+          <select id="opcao_pagamento" name="opcao_pagamento" class="form-select bg-light" required>
             <option value="pix">PIX</option>
-            <option value="boleto">Pagamento por BOLETO (acréscimo de R$2,00)</option>
+            <option  value="boleto">Pagamento por BOLETO (acréscimo de R$2,00)</option>
             <option value="recorrencia">RECORRÊNCIA (CARTÃO DE CRÉDITO)</option>
           </select><br>
-      
+        </div>
+        </div>
+
+
+
+        <p></p>
+        <br>
+
+
+
+
           <h3>Frequência das aulas:</h3>
-          <select id="frequencia_aulas" name="frequencia_aulas" required>
+          <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-6 ">
+          <select class="form-select bg-light" id="frequencia_aulas" name="frequencia_aulas" required>
             <option value="30min_1x">1x de 30 min</option>
             <option value="30min_2x">2x de 30 min</option>
             <option value="30min_3x">3x de 30 min</option>
             <option value="30min_4x">4x de 30 min</option>
             <option value="30min_5x">5x de 30 min</option>
             <option value="aulas_1h">Aulas de 1 hora</option>
+          </div>
           </select><br>
-      
-          <label for="melhores_horarios">Melhores horários:</label>
-          <textarea id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></textarea><br>
-      
-          <h3>Melhores dias da semana para fazer aula:</h3>
-          <input type="checkbox" id="dia_semana_segunda" name="dia_semana[]" value="segunda">
-          <label for="dia_semana_segunda">Segunda</label><br>
-          <input type="checkbox" id="dia_semana_terca" name="dia_semana[]" value="terca">
-          <label for="dia_semana_terca">Terça</label><br>
-          <input type="checkbox" id="dia_semana_quarta" name="dia_semana[]" value="quarta">
-          <label for="dia_semana_quarta">Quarta</label><br>
-          <input type="checkbox" id="dia_semana_quinta" name="dia_semana[]" value="quinta">
-          <label for="dia_semana_quinta">Quinta</label><br>
-          <input type="checkbox" id="dia_semana_sexta" name="dia_semana[]" value="sexta">
-          <label for="dia_semana_sexta">Sexta</label><br>
+        </div>
+        <div class="col-md-7 ">
+          <label for="melhores_horarios">Melhores horários (trabalhamos das 7:00 as 21:30):</label>
+          <textarea class="form-control" id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></textarea><br>
+        </div>
+        <br>
 
+          <h3>Melhores dias da semana para fazer aula:</h3>
+          <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="dia_semana_segunda" name="dia_semana[]" value="segunda">
+          <label class="form-check-label" for="dia_semana_segunda">Segunda</label><br>
+          <input class="form-check-input" type="checkbox" id="dia_semana_terca" name="dia_semana[]" value="terca">
+          <label class="form-check-label" for="dia_semana_terca">Terça</label><br>
+          <input class="form-check-input" type="checkbox" id="dia_semana_quarta" name="dia_semana[]" value="quarta">
+          <label class="form-check-label" for="dia_semana_quarta">Quarta</label><br>
+          <input class="form-check-input" type="checkbox" id="dia_semana_quinta" name="dia_semana[]" value="quinta">
+          <label class="form-check-label" for="dia_semana_quinta">Quinta</label><br>
+          <input class="form-check-input" type="checkbox" id="dia_semana_sexta" name="dia_semana[]" value="sexta">
+          <label class="form-check-label" for="dia_semana_sexta">Sexta</label><br>
+          </div>
+           
+          <p></p>
           <div class="col-md-6 ">
             <label for="nome_vendedor" class="form-label ">Nome do vendedor:</label>
             <input type="text" id="nome_vendedor" name="nome_vendedor" required class="form-control bg-light"><br>
           </div>
-      
-          <input type="submit" value="Enviar">
+          <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-6 ">
+          <button type="submit" class="btn btn-primary">Matricular</button>
+          </div>
+        </div>
         </form>
   </section>
   <section data-bs-version="5.1" class="footer3 cid-tkzhgNDZCM" once="footers" id="footer3-y">
