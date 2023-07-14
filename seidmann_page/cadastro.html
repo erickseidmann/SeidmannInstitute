@@ -25,6 +25,12 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="/seidmann_page/style/style.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <section data-bs-version="5.1" class="menu cid-tkzhgMMrxs" once="menu" id="menu1-x">
@@ -328,6 +334,7 @@
           <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-6 ">
           <select class="form-select bg-light" id="frequencia_aulas" name="frequencia_aulas" required>
+            <option value="selecione">Selecionar</option>
             <option value="30min_1x">1x de 30 min</option>
             <option value="30min_2x">2x de 30 min</option>
             <option value="30min_3x">3x de 30 min</option>
@@ -336,13 +343,21 @@
             <option value="aulas_1h">Aulas de 1 hora</option>
           </div>
           </select><br>
+          
+
         </div>
-        <div class="col-md-7 ">
+        <p></p>
+       
+
+        <div class="col-md-3 ">
           <label for="melhores_horarios">Melhores horários (trabalhamos das 7:00 as 21:30):</label>
           <textarea class="form-control" id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></textarea><br>
         </div>
         <br>
 
+
+      </div>
+          <p></p>
           <h3>Melhores dias da semana para fazer aula:</h3>
           <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="dia_semana_segunda" name="dia_semana[]" value="segunda">
