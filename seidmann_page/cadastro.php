@@ -26,11 +26,36 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/seidmann_page/style/style.css">
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
+  <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+  <script src="JS/app.js"></script>
+  <script type="text/javascript"> 
+    $(document).ready(function(){
+    $('#meuform').validate({
+        rules:{
+            nome_completo:{
+                required:true,
+                minlength:5
+            },
+            email:{
+                required:true,
+                email:true
+            }
+        },
+        messages:{
+            nome_completo:{
+                required:'Este campo é obrigatório',
+                minlength:'O nome deve ter pelo menos 5 caracteres'
+            },
+            email:{
+                required:'Este campo é obrigatório',
+                email:'Insira um endereço de email válido'
+            }
+        }
+    });
+});
+  </script>
 </head>
 <body>
   <section data-bs-version="5.1" class="menu cid-tkzhgMMrxs" once="menu" id="menu1-x">
@@ -92,7 +117,7 @@
   </section>
   <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
   
-       <form class="container " action="processar_formulario.php" method="POST">
+       <form id="meuform" class="container " action="processar_formulario.php" method="POST">
 
           <h2 class="text-center">Welcome To Seidmann Institute</h2>
           <p></p>
@@ -105,7 +130,7 @@
           <div class="row input-group col-md-6 fw-semibold ">
               <div class="col-md-6 ">
                 <label for="nome_completo" class="form-label ">Nome Completo:</label>
-                <input type="text" id="nome_completo" class="form-control bg-light" name="nome_completo" aria-describedby="emailHelp" required><br>
+                <input type="text" id="nome_completo" class="form-control bg-light" name="nome_completo" aria-describedby="emailHelp" ><br>
               </div>
               
               <div class="col-md-6 ">
