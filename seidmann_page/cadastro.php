@@ -9,7 +9,9 @@
   <meta property="og:image" content="">
   <meta name="twitter:title" content="Blog">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>Formulários</title>
+  <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  <title>Cadastro</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pkubebP0x8l7s5bq4XgzLgvs5pP5Dpr8U0I6k7+4JcYKzzw3k0CGPlFElN4Q8RzO" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -28,34 +30,23 @@
   <link rel="stylesheet" href="/seidmann_page/style/style.css">
   <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"> </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.mask.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/additional-methods.js"></script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
 
   <script src="JS/app.js"></script>
-  <script type="text/javascript"> 
-    $(document).ready(function(){
-    $('#meuform').validate({
-        rules:{
-            nome_completo:{
-                required:true,
-                minlength:5
-            },
-            email:{
-                required:true,
-                email:true
-            }
-        },
-        messages:{
-            nome_completo:{
-                required:'Este campo é obrigatório',
-                minlength:'O nome deve ter pelo menos 5 caracteres'
-            },
-            email:{
-                required:'Este campo é obrigatório',
-                email:'Insira um endereço de email válido'
-            }
-        }
-    });
-});
-  </script>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <section data-bs-version="5.1" class="menu cid-tkzhgMMrxs" once="menu" id="menu1-x">
@@ -117,7 +108,7 @@
   </section>
   <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
   
-       <form id="meuform" class="container " action="processar_formulario.php" method="POST">
+       <form id="form" class="container " action="processar_formulario.php" method="POST">
 
           <h2 class="text-center">Welcome To Seidmann Institute</h2>
           <p></p>
@@ -142,23 +133,23 @@
         <!-- Informações para  nota fiscal  -->
          <div class="row input-group col-md-6 fw-semibold ">
           <div class="col-md-6 " >
-            <label for="cpf" class="form-label ">CPF para emitir nota fiscal ou boleto:</label>
-            <input class="form-control bg-light" type="text" id="cpf" name="cpf" placeholder="Se voce for menor de idade adicionar o cpf do responsavel" required><br>
+            <label for="cpf" class="form-label ">CPF Se voce for menor de idade adicionar o cpf do responsavel:</label>
+            <input class="form-control bg-light" type="text" id="cpf" name="cpf" ><br>
           </div>
 
           <div class="col-md-6 ">
             <label for="telefone" class="form-label ">Celular:</label>
-            <input class="form-control bg-light" type="text" id="telefone" name="telefone" required><br>
+            <input class="form-control bg-light" type="text" id="telefone" name="telefone" ><br>
           </div>
           
           <div class="col-md-6 ">
           <label for="data_nascimento" class="form-label ">Data de nascimento:</label>
-          <input class="form-control bg-light" type="date" id="data_nascimento" name="data_nascimento" required><br>
+          <input class="form-control bg-light" type="date" id="data_nascimento" name="data_nascimento" ><br>
           </div>
 
           <div class="col-md-6 ">
             <label for="email" class="form-label ">E-mail:</label>
-            <input class="form-control bg-light" type="email" id="email" name="email" required><br>
+            <input class="form-control bg-light" type="email" id="email" name="email" ><br>
           </div>
           
 
@@ -238,7 +229,7 @@
         </div>  
              <!-- fimmmm INFORMAÇÕES SOBRE O ENDEREÇO -->
 
-<!-- data pagamento-->
+                <!-- data pagamento-->
           
           <p></p>
           <h3 class="text-center">Termos e Condições Seidmann Institute:</h3>
@@ -251,7 +242,7 @@
           
             <div class="col-md-4">
               <label class="form-label" for="valor_combinado">Valor combinado com vendedor(a):</label>
-              <input class="form-control bg-light" type="text" id="valor_combinado" name="valor_combinado" required><br>
+              <input class="form-control bg-light" type="text" id="valor_combinado" name="valor_combinado" placeholder="R$00,00" required><br>
             </div>
             <br>
             <div class="form-check">
@@ -272,7 +263,7 @@
          
 
 
-<!-- Reposição de aulas-->
+                  <!-- Reposição de aulas-->
 
           <p></p>
           
@@ -404,7 +395,7 @@
           </div>
           <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-6 ">
-          <button type="submit" class="btn btn-primary">Matricular</button>
+          <button id="btncadastrar" name="btncadastrar" type="submit" class="btn btn-primary">Matricular</button>
           </div>
         </div>
         </form>
@@ -467,5 +458,18 @@
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
   <script src="assets/parallax/jarallax.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.mask.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/additional-methods.js"></script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
 </body>
-</html>
+</html

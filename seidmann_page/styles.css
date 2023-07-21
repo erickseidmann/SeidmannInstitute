@@ -1,0 +1,17 @@
+.errorInput{
+  border: 2px solid rgb(231, 58, 58) !important;
+}
+
+.dourado {
+  color: yellow;
+}
+
+.branco {
+  color: white;
+}
+
+label.error{
+  color:#f00;
+  font-weight: bold;
+  border: #f00;
+}
