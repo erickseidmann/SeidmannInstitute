@@ -302,13 +302,13 @@
           <h3 class="text-center">Receber um lembrete de vencimento?</h3>
           <h5 class="lh-base p-3 mb-2 bg-light text-dark">Os lembretes são enviando sempre um dia antes do vencimento da mensalidade. Caso opte por não receber é importante lembrar que um atraso não notificado pode resultar em perca do desconto oferecido pela escola. </h5>
         <br>
-          <div class="form-check">  
-          <input class="form-check-input" type="radio" id="lembrete_sim" name="lembrete" value="sim" required>
-          <label class="form-check-label" for="lembrete_sim">Sim</label>
-        </div>  
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="lembrete_nao" name="lembrete" value="nao" required>
-          <label class="form-check-label" for="lembrete_nao">Não</label><br>
+        <div class="row input-group col-md-6 fw-semibold ">
+        <div class="col-md-4 ">
+        <select class="form-select bg-light" id="lembrete" name="lembrete" required>
+            <option value="sim">SIM</option>
+            <option value="nao">Não</option>
+            </select><br>
+        </div>
         </div>
           <br>
 
@@ -355,31 +355,27 @@
 
         <div class="col-md-3 ">
           <label for="melhores_horarios">Melhores horários (trabalhamos das 7:00 as 21:30):</label>
-          <textarea class="form-control" id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></textarea><br>
+          <input class="form-control bg-light" id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></input><br>
         </div>
         <br>
 
 
       </div>
           <p></p>
-          <h3>Melhores dias da semana para fazer aula:</h3>
-          <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="dia_semana_segunda" name="dia_semana[]" value="segunda">
-          <label class="form-check-label" for="dia_semana_segunda">Segunda</label><br>
-          <input class="form-check-input" type="checkbox" id="dia_semana_terca" name="dia_semana[]" value="terca">
-          <label class="form-check-label" for="dia_semana_terca">Terça</label><br>
-          <input class="form-check-input" type="checkbox" id="dia_semana_quarta" name="dia_semana[]" value="quarta">
-          <label class="form-check-label" for="dia_semana_quarta">Quarta</label><br>
-          <input class="form-check-input" type="checkbox" id="dia_semana_quinta" name="dia_semana[]" value="quinta">
-          <label class="form-check-label" for="dia_semana_quinta">Quinta</label><br>
-          <input class="form-check-input" type="checkbox" id="dia_semana_sexta" name="dia_semana[]" value="sexta">
-          <label class="form-check-label" for="dia_semana_sexta">Sexta</label><br>
+          <div class="row input-group col-md-6 fw-semibold ">
+              <div class="col-md-4 ">
+                <h3>Melhores dias da semana para fazer aula:</h3>
+                <h5>não trabalhamos aos sabados e domingos</h5>
+                <input class="form-control bg-light" id="dia_semana" name="dia_semana" rows="4" cols="50"></input><br>
+              </div>
           </div>
            
           <p></p>
+          <div class="col-md-8 ">
           <div class="col-md-6 ">
             <label for="nome_vendedor" class="form-label ">Nome do vendedor:</label>
             <input type="text" id="nome_vendedor" name="nome_vendedor" required class="form-control bg-light"><br>
+          </div>
           </div>
           <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-6 ">
