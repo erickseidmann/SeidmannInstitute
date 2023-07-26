@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
     // Recupera os dados do formulário
+    $id = $_POST["id"];
     $nome_completo = $_POST["nome_completo"];
     $nome_responsavel = $_POST["nome_responsavel"];
     $cpf = $_POST["cpf"];
@@ -73,7 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             melhores_horarios = '$melhores_horarios',
             dia_semana = '$dia_semana',
             nome_vendedor = '$nome_vendedor'
-            WHERE id = '$aluno_id'";
+
+            WHERE id = '$id'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Dados do aluno atualizados com sucesso!";

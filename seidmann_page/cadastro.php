@@ -107,6 +107,7 @@
           
           <!-- Nomes  -->
           <div class="row input-group col-md-6 fw-semibold ">
+          <input type="hidden" name="id" >
               <div class="col-md-6 ">
                 <label for="nome_completo" class="form-label ">Nome Completo:</label>
                 <input type="text" id="nome_completo" class="form-control bg-light" name="nome_completo" aria-describedby="emailHelp" ><br>

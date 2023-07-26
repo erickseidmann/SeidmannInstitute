@@ -1,66 +1,4 @@
-<?php
-// Inclua o arquivo de configuração do banco de dados
-require_once "config.php";
-
-// Função para converter array em string
-function arrayToString($value) {
-    if (is_array($value)) {
-        return implode(", ", $value);
-    }
-    return $value;
-}
-
-// Verifica se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Percorre todas as variáveis do formulário e as converte em strings
-    foreach ($_POST as $key => $value) {
-        $_POST[$key] = arrayToString($value);
-    }
-
-    // Recupera os dados do formulário
-    $id = $_POST["id"];
-    $nome_completo = $_POST["nome_completo"];
-    $nome_responsavel = $_POST["nome_responsavel"];
-    $cpf = $_POST["cpf"];
-    $telefone = $_POST["telefone"];
-    $data_nascimento = $_POST["data_nascimento"];
-    $email = $_POST["email"];
-    $cep = $_POST["cep"];
-    $logradouro = $_POST["logradouro"];
-    $cidade = $_POST["cidade"];
-    $estado = $_POST["estado"];
-    $bairro = $_POST["bairro"];
-    $numero = $_POST["numero"];
-    $complemento = $_POST["complemento"];
-    $valor_combinado = $_POST["valor_combinado"];
-    $termos_condicoes = $_POST["termos_condicoes"];
-    $cancelamento_curso = $_POST["cancelamento_curso"];
-    $ferias = $_POST["ferias"];
-    $opcao_livro = $_POST["opcao_livro"];
-    $material = $_POST["material"];
-    $dia_pagamento = $_POST["dia_pagamento"];
-    $lembrete = $_POST["lembrete"];
-    $opcao_pagamento = $_POST["opcao_pagamento"];
-    $frequencia_aulas = $_POST["frequencia_aulas"];
-    $melhores_horarios = $_POST["melhores_horarios"];
-    $dia_semana = $_POST["dia_semana"];
-    $nome_vendedor = $_POST["nome_vendedor"];
-
-    // Insira os dados no banco de dados
-    $sql = "INSERT INTO formulario (id, nome_completo, nome_responsavel, cpf, telefone, data_nascimento, email, cep, logradouro, cidade, estado, bairro, numero, complemento, valor_combinado, termos_condicoes, cancelamento_curso, ferias, opcao_livro, material, dia_pagamento, lembrete, opcao_pagamento, frequencia_aulas, melhores_horarios, dia_semana, nome_vendedor)
-            VALUES ('$id','$nome_completo', '$nome_responsavel', '$cpf', '$telefone', '$data_nascimento', '$email', '$cep', '$logradouro', '$cidade', '$estado', '$bairro', '$numero', '$complemento', '$valor_combinado', '$termos_condicoes', '$cancelamento_curso', '$ferias', '$opcao_livro', '$material', '$dia_pagamento', '$lembrete', '$opcao_pagamento', '$frequencia_aulas', '$melhores_horarios', '$dia_semana', '$nome_vendedor')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo " Matrícula realizada com sucesso!";
-    } else {
-        echo "Erro ao enviar o formulário: " . $conn->error;
-    }
-
-    // Fecha a conexão com o banco de dados
-    $conn->close();
-}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,11 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row form-cadastro justify-content-center">
             <div class="col-6 aling-self-center bg-white">
                 <div class="row justify-content-center mb-4">
-                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Matrícula realizada com sucesso!</h1>
+                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Dados do aluno atualizados com sucesso!</h1>
                         <div class="d-flex justify-content-evenly ">
                             <div>
-                            <a href="cadastro.php"> <button type="button" class=" btn btn-info btn-lg"> 
-                            Novo Usuario </button> </a>         
+                            <a href="listar_alunos.php"> <button type="button" class=" btn btn-info btn-lg"> 
+                            voltar para lista </button> </a>         
                             </div>
     
                             <div >

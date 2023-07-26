@@ -87,9 +87,9 @@
         <div class="card col-12 col-lg-10">
           <div class="card-wrapper">
             <div class="card-box align-center">
-              <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>Inglês para alcançar o mundo!</strong></h4>
+              <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>Alunos matriculados</strong></h4>
               <div class="mbr-section-btn mt-3">
-                <a class="btn btn-warning-outline display-4" href="https://wa.me/5519988279707" target="_blank">Falar com a Direção!</a>
+                <a class="btn btn-warning-outline display-4" href="https://wa.me/5519988279707" target="_blank">Pedir ajuda</a>
               </div>
             </div>
           </div>
@@ -97,43 +97,79 @@
       </div>
     </div>
   </section>
-  <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41 col-md-4 text-center" id="features3-u">
-  <div class="container">
-  <div class="row input-group col-md-20 fw-semibold ">
-              <div class="col-md-18 ">
+  <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41 text-center" id="features3-u">
+  <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41 text-center" id="features3-u">
+        <div class="container">
+            <div class="row input-group col-md-20 fw-semibold ">
+                <div class="col-md-18">
+                    <h1 class="text-center">Lista de Alunos Matriculados</h1>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Buscar aluno" aria-label="Buscar aluno" aria-describedby="buscar-aluno" id="buscar-aluno-input">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="buscar-aluno-btn">Buscar</button>
+                        </div>
+                    </div>
+                    <?php
+                    // Inclua o arquivo de configuração do banco de dados
+                    require_once "config.php";
 
-    <h1>Lista de Alunos</h1>
+                    // Consulta todos os alunos na tabela "formulario"
+                    $sql = "SELECT * FROM formulario";
+                    $result = $conn->query($sql);
 
-    <?php
-        // Inclua o arquivo de configuração do banco de dados
-        require_once "config.php";
+                    if ($result->num_rows > 0) {
+                        echo '<ul class="list-group">';
+                        // Loop para exibir cada aluno na lista
+                        while ($row = $result->fetch_assoc()) {
+                          // Verifica o status do aluno
+                          $status = $row["status"] == 1 ? "Ativo" : "Inativo";
+                          $statusBtnText = $row["status"] == 1 ? "Marcar como Inativo" : "Marcar como Ativo";
+                          $statusBtnClass = $row["status"] == 1 ? "btn-danger" : "btn-success";
+                          
+                          // Estiliza o nome do aluno se estiver inativo
+                          $nameStyle = $row["status"] == 0 ? 'style="color: #c0c0c0;"' : '';
+                          
+                          echo '<li class="list-group-item list-group-item-action list-group-item-primary text-center align-items-center">';
+                          echo '<span ' . $nameStyle . '>Nome: ' . $row["nome_completo"] . '</span> | Status: ' . $status;
+                          echo ' | <a class="btn btn-primary btn-sm" href="editar_aluno.php?id=' . $row["id"] . '">Editar</a>';
+                          echo ' | <a class="btn ' . $statusBtnClass . ' btn-sm" href="alterar_status_aluno.php?id=' . $row["id"] . '&status=' . $row["status"] . '">' . $statusBtnText . '</a>';
+                          echo ' | <a class="btn btn-danger btn-sm" href="excluir_aluno.php?id=' . $row["id"] . '">Excluir</a>';
+                          echo '</li>';
+                      }
+                        echo '</ul>';
+                    } else {
+                        echo '<div class="text-center">Nenhum aluno cadastrado.</div>';
+                    }
 
-        // Consulta todos os alunos na tabela "formulario"
-        $sql = "SELECT * FROM formulario";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo '<ul class="list-group">';
-            // Loop para exibir cada aluno na lista
-            while ($row = $result->fetch_assoc()) {
-                $status = $row["status"] == 1 ? "Ativo" : "Inativo";
-                echo '<li class="list-group-item list-group-item-action list-group-item-primary text-center align-items-center">';
-                echo 'Nome: ' . $row["nome_completo"] . ' | Status: ' . $status;
-                echo ' | <a class="btn btn-primary btn-sm" href="editar_aluno.php?id=' . $row["id"] . '">Editar</a>';
-                echo ' | <a class="btn btn-danger btn-sm" href="excluir_aluno.php?id=' . $row["id"] . '">Excluir</a>';
-                echo '</li>';
-            }
-            echo '</ul>';
-        } else {
-            echo '<div class="text-center">Nenhum aluno cadastrado.</div>';
-        }
-
-        // Fecha a conexão com o banco de dados
-        $conn->close();
-        ?>
+                    // Fecha a conexão com o banco de dados
+                    $conn->close();
+                    ?>
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
+    </section>
+
+    <section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">
+        <!-- ... (seu código atual da seção de rodapé) ... -->
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Script para buscar alunos
+            $("#buscar-aluno-btn").on("click", function() {
+                let inputText = $("#buscar-aluno-input").val().toLowerCase();
+                $(".list-group-item").each(function() {
+                    if ($(this).text().toLowerCase().indexOf(inputText) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     </section>    
     
 <section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">

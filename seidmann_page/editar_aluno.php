@@ -122,7 +122,7 @@
             <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-6 ">
             <label for="nome_completo" class="form-label ">Numero de  matricula:</label>
-                <input type="number" name="id" class="form-control bg-light" value="<?php echo $row["id"]; ?>" disabled="">
+                <input type="number" id="id" name="id" class="form-control bg-light" value="<?php echo $row["id"]; ?>" disabled="">
             </div>
             <p></p>
             </div>
@@ -155,6 +155,17 @@
                 <label for="data_nascimento" class="form-label ">Data de nascimento:</label>
                 <input class="form-control bg-light" type="date" id="data_nascimento" name="data_nascimento" value="<?php echo $row["data_nascimento"]; ?>" ><br>
             </div>
+
+
+            <div class="row input-group col-md-6 fw-semibold ">
+          <h3 class="text-center">Data Pagamento</h3>
+          
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">A data deve ser a mesma acordada com professor, qualquer dúvida por favor entre em contato com o seu professor. *** Deve ser ao menos um dia antes do início das aulas **</h5>
+          <div class="col-md-3">
+          <label for="dia_pagamento">Dia acordado de pagamento da mensalidade:</label>
+          <input class="form-control bg-light" type="date" id="dia_pagamento" name="dia_pagamento"  value="<?php echo $row["dia_pagamento"]; ?>"required><br>
+        </div>
+        </div>
 
             <div class="col-md-6 ">
                 <label for="email" class="form-label ">E-mail:</label>
@@ -221,6 +232,16 @@
                 <input type="text" name="complemento" class="form-control bg-light" id="complemento" placeholder="Complemento" value="<?php echo $row["complemento"]; ?>" />
             </div>
         </div>
+<p></p>
+
+        <h5>Por favor, selecione um livro.</h5>
+          <div class="col-md-4 ">
+          <select class="form-select bg-light" id="opcao_livro" name="opcao_livro" placeholder="Complemento" required>
+            
+            <option value="fisico" <?php if ($row["opcao_livro"] == "fisico") echo "selected"; ?>>Livro fisico/ PDF / Audio. R$100,00</option>
+            <option value="PDF"<?php if ($row["opcao_livro"] == "PDF") echo "selected"; ?>>PDF / Audio R$80,00</option>
+          </select><br>
+          </div>
 
 
         <!-- Campo "Valor combinado com vendedor(a)" -->
@@ -229,6 +250,24 @@
             <input class="form-control bg-light" type="text" id="valor_combinado" name="valor_combinado" placeholder="R$00,00" value="<?php echo $row["valor_combinado"]; ?>"><br>
         </div>
         <br>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="termos_condicoes" name="termos_condicoes" checked required>
+            <label class="form-check-label" for="termos_condicoes">Entendo e concordo: <?php echo $row["termos_condicoes"]; ?></label><br>
+        </div>
+          <br>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ferias" name="ferias[]" checked value="sim" required>
+            <label class="form-check-label" for="ferias">Entendo e concordo sobre as férias e os feriados <?php echo $row["termos_condicoes"]; ?></label><br>
+            <br>
+          </div>  
+
+          </div>
+          <div class="form-check">
+          <input  class="form-check-input" type="checkbox" id="material" name="material[]" value="sim" checked required>
+          <label class="form-check-label" for="material">Li e entendo sobre o Material EPBL.<?php echo $row["material"]; ?></label><br>
+          <br>
+          </div>
 
 
         <!-- Select "Opção de pagamento" -->
@@ -242,6 +281,15 @@
                 </select><br>
             </div>
         </div>
+
+        <h3 class="text-center">Cancelamento do curso:</h3>
+                <h5 class="lh-base p-3 mb-2 bg-light text-dark">O cancelamento do Curso deve ser realizado com ao menos uma semana antes da data de pagamento mensal, caso contrario  será cobrado uma taxa referente a uma semana de aula.</h5>
+                <br>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cancelamento_curso" name="cancelamento_curso" value="sim" checked required>
+                <label class="form-check-label" for="cancelamento_curso">Entendo e concordo.<?php echo $row["cancelamento_curso"]; ?> </label><br>
+              </div>
+              <br>
 
         <p></p>
         <br>
