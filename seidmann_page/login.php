@@ -13,6 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // As credenciais estão corretas, redirecione para a página protegida
     header('Location: horarios.html');
     exit();
+  } elseif ($username === 'direcao' && $password === 'seidmann@2023') {
+      // As credenciais estão corretas, redirecione para a página protegida
+      header('Location: listar_alunos.php');
+      exit();
   } elseif ($username === '103' && $password === '2023103') {
     // As credenciais estão corretas, redirecione para a página protegida
     header('Location: horarios.html');

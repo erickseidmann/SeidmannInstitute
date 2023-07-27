@@ -1,4 +1,3 @@
-<!-- excluir_aluno.php -->
 <?php
 // Inclua o arquivo de configuração do banco de dados
 require_once "config.php";
@@ -11,21 +10,14 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     // Prepara o SQL para excluir o aluno com base no ID fornecido
     $sql = "DELETE FROM formulario WHERE id = '$id'";
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        // Verifica se o botão de confirmação "Sim" foi clicado
-        if (isset($_POST["confirmar"])) {
-            if ($conn->query($sql) === TRUE) {
-                echo "Aluno excluído com sucesso. Aguarde";
-                // Redireciona para a página de listagem de alunos após 2 seconds
-                header("refresh:1; url=listar_alunos.php");
-                exit();
-            } else {
-                echo "Erro ao excluir o aluno: " . $conn->error;
-            }
-        } else {
-            // Redireciona de volta à página de listagem de alunos caso o botão "Não" seja clicado
+    // Verifica se o botão de confirmação "Sim" foi clicado
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["confirmar"])) {
+        if ($conn->query($sql) === TRUE) {
+            // Redireciona para a página de listagem de alunos após a exclusão bem-sucedida
             header("Location: listar_alunos.php");
             exit();
+        } else {
+            echo "Erro ao excluir o aluno: " . $conn->error;
         }
     }
 } else {

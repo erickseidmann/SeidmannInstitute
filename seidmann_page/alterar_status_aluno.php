@@ -4,19 +4,21 @@
 require_once "config.php";
 
 // Verifica se o ID do aluno e o novo status foram passados por parâmetro
-if (isset($_GET["id"]) && isset($_GET["status"])) {
-    $alunoID = $_GET["id"];
-    $novoStatus = $_GET["status"] == 1 ? 0 : 1;
+if (isset($_GET["id"]) && !empty(trim($_GET["id"])) && isset($_GET["status"])) {
+    // Obtém o ID do aluno e o novo status da URL
+    $id = trim($_GET["id"]);
+    $status = ($_GET["status"] == 1) ? 0 : 1; // Alterna o status (0 para inativo, 1 para ativo)
 
-    // Atualiza o status do aluno no banco de dados
-    $sql = "UPDATE formulario SET status = '$novoStatus' WHERE id = '$alunoID'";
+    // Prepara o SQL para alterar o status do aluno com base no ID fornecido
+    $sql = "UPDATE formulario SET status = '$status' WHERE id = '$id'";
+
+    // Executa o SQL para alterar o status do aluno
     if ($conn->query($sql) === TRUE) {
-        // Redireciona para a página de listar alunos após a atualização
+        // Redireciona para a página de listagem de alunos após a alteração bem-sucedida
         header("Location: listar_alunos.php");
         exit();
     } else {
-        // Se ocorrer algum erro na atualização, exibe uma mensagem de erro
-        echo "Erro ao atualizar o status do aluno: " . $conn->error;
+        echo "Erro ao alterar o status do aluno: " . $conn->error;
     }
 } else {
     // Se não foram passados os parâmetros necessários, redireciona para a página de listar alunos
