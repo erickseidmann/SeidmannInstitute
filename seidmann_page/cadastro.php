@@ -29,9 +29,33 @@
   <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"> </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  // Função para gerar o número de matrícula automático
+  function generateNumeroMatricula() {
+    // Prefixo da matrícula (se desejar)
+    var prefixo = "MAT";
+
+    // Gerar um ID único baseado no timestamp atual
+    var idUnico = Date.now().toString(36); // Usando timestamp como ID único em formato base36
+
+    // Concatenar o prefixo (se existir) com o ID único
+    var numeroMatricula = prefixo + idUnico;
+
+    // Retornar o número de matrícula gerado
+    return numeroMatricula;
+  }
+
+  // Quando o documento estiver pronto, atribuir o valor gerado ao campo de matrícula
+  document.addEventListener("DOMContentLoaded", function() {
+    var campoMatricula = document.getElementById("numero_matricula");
+    campoMatricula.value = generateNumeroMatricula();
+  });
+</script>
  
   <script defer src="script.js"></script>
+
   <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
   <section data-bs-version="5.1" class="menu cid-tkzhgMMrxs" once="menu" id="menu1-x">
@@ -39,7 +63,7 @@
       <div class="container">
         <div class="navbar-brand">
           <span class="navbar-logo">
-            <a href="https://mobiri.se">
+            <a href="index.html">
               <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
             </a>
           </span>
@@ -63,15 +87,11 @@
             <li class="nav-item">
               <a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a>
+              <a class="nav-link link text-black text-primary display-4" href="cadastro.html">Matrícula</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="formularios.html">Formulários</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="listar_alunos.php">listar</a>
-            </li>
+
           </ul>
         </div>
       </div>
@@ -103,11 +123,19 @@
           <h5 class="lh-base p-3 mb-2 bg-light text-dark" >A equipe Seidmann, sente muita alegria e satisfação por ter você estudando, crescendo e aprendendo conosco e queremos que saiba que estaremos dando nosso melhor para ajudar você a realizar seus sonhos e suas metas de aprender um novo idioma. E para melhor atender nossos alunos(as), segue alguns importantes tópicos e regras sobre pagamentos e cancelamentos de aulas, por favor caso tenha qualquer dúvida entrar em contato com a escola. Att. Equipe Seidmann</h5>
         
           <p></p>
+
+          <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-2 ">
           
-          
+          <label>Número de Matrícula:</label>
+          <input type="text" name="numero_matricula" id="numero_matricula"  class="form-control bg-light" readonly>
+          </div>
+          </div>
+          <p></p>
           <!-- Nomes  -->
           <div class="row input-group col-md-6 fw-semibold ">
-          <input type="hidden" name="id" >
+
+
               <div class="col-md-6 ">
                 <label for="nome_completo" class="form-label ">Nome Completo:</label>
                 <input type="text" id="nome_completo" class="form-control bg-light" name="nome_completo" aria-describedby="emailHelp" ><br>
@@ -384,47 +412,61 @@
           </div>
         </div>
         </form>
+
   </section>
-  <section data-bs-version="5.1" class="footer3 cid-tkzhgNDZCM" once="footers" id="footer3-y">
-    <div class="container">
-      <div class="media-container-row align-center mbr-white">
+  <section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">
+
+    
+
+    
+
+<div class="container">
+    <div class="media-container-row align-center mbr-white">
         <div class="row row-links">
-          <ul class="foot-menu">
-            <li class="foot-menu-item mbr-fonts-style display-7">Email</li>
-            <li class="foot-menu-item mbr-fonts-style display-7">Instagram</li>
-            <li class="foot-menu-item mbr-fonts-style display-7">Facebook</li>
-          </ul>
+            <ul class="foot-menu">
+                
+                
+                
+                
+                
+            <li class="foot-menu-item mbr-fonts-style display-7">Email</li><li class="foot-menu-item mbr-fonts-style display-7">Instagram</li><li class="foot-menu-item mbr-fonts-style display-7">Facebook</li></ul>
         </div>
         <div class="row social-row">
-          <div class="social-list align-right pb-2">
+            <div class="social-list align-right pb-2">
+                
+                
+                
+                
+                
+                
             <div class="soc-item">
-              <a href="http://seidmanninstitute.com/" target="_blank">
-                <span class="mbr-iconfont mbr-iconfont-social mobi-mbri-arrow-next mobi-mbri"></span>
-              </a>
-            </div>
-            <div class="soc-item">
-              <a href="https://www.facebook.com/Seidmanninstitute" target="_blank">
-                <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
-              </a>
-            </div>
-            <div class="soc-item">
-              <a href="https://www.youtube.com/channel/UCrVxXG9Z2TqdokA7ST91bcA" target="_blank">
-                <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
-              </a>
-            </div>
-            <div class="soc-item">
-              <a href="https://www.instagram.com/seidmann_institute/" target="_blank">
-                <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
-              </a>
-            </div>
-          </div>
+                    <a href="http://seidmanninstitute.com/" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social mobi-mbri-arrow-next mobi-mbri"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.facebook.com/Seidmanninstitute" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.youtube.com/channel/UCrVxXG9Z2TqdokA7ST91bcA" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.instagram.com/seidmann_institute/" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                    </a>
+                </div></div>
         </div>
         <div class="row row-copirayt">
-          <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">© Seidmann Institute All Rights Reserved.</p>
+            <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                © Seidmann Institute All Rights Reserved.
+            </p>
         </div>
-      </div>
     </div>
-  </section>
+</div>
+</section><section class="display-7" ><p hidden href="https://mobiri.se/2782058" ></a><p hidden> &#8204;</p><a  href="https://mobirise.com/offline-website-builder.html"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/embla/embla.min.js"></script>  <script src="assets/embla/script.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
+
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -438,6 +480,7 @@
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/additional-methods.js"></script>
   <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+
 
 </body>
 </html

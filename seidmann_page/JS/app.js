@@ -275,3 +275,24 @@ $(document).ready(function () {
         alert(strength);
     });
  });*/
+
+  // Função para gerar o número de matrícula automático
+  function generateNumeroMatricula() {
+    // Prefixo da matrícula (se desejar)
+    var prefixo = "MAT";
+
+    // Gerar um ID único baseado no timestamp atual
+    var idUnico = Date.now().toString(36); // Usando timestamp como ID único em formato base36
+
+    // Concatenar o prefixo (se existir) com o ID único
+    var numeroMatricula = prefixo + idUnico;
+
+    // Retornar o número de matrícula gerado
+    return numeroMatricula;
+  }
+
+  // Quando o documento estiver pronto, atribuir o valor gerado ao campo de matrícula
+  document.addEventListener("DOMContentLoaded", function() {
+    var campoMatricula = document.getElementById("numero_matricula");
+    campoMatricula.value = generateNumeroMatricula();
+  });

@@ -42,7 +42,7 @@
         
         <div class="navbar-brand">
           <span class="navbar-logo">
-            <a href="https://mobiri.se">
+            <a href="index.html">
               <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
             </a>
           </span>
@@ -97,50 +97,71 @@
       </div>
     </div>
   </section>
-  <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41 text-center" id="features3-u">
+
   <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41 text-center" id="features3-u">
         <div class="container">
             <div class="row input-group col-md-20 fw-semibold ">
                 <div class="col-md-18">
                     <h1 class="text-center">Lista de Alunos Matriculados</h1>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Buscar aluno" aria-label="Buscar aluno" aria-describedby="buscar-aluno" id="buscar-aluno-input">
+                        <input type="text" class="form-control bg-light" placeholder="Buscar aluno" aria-label="Buscar aluno" aria-describedby="buscar-aluno" id="buscar-aluno-input">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="buscar-aluno-btn">Buscar</button>
                         </div>
                     </div>
+
+                    <div class="row input-group col-md-8 fw-semibold ">
+                        <div class="col-md-2 ">
+                        <label class="input-group-text" for="ordenar-por">Ordenar por:</label>
+                        <select class="form-select" id="ordenar-por">
+                            <option value="alfabetica">Ordem Alfabética</option>
+                            <option value="data">Data de Registro</option>
+                        </select>
+                    </div>
+                    </div>
+                    <p></p>
                     <?php
                     // Inclua o arquivo de configuração do banco de dados
                     require_once "config.php";
 
                     // Consulta todos os alunos na tabela "formulario"
-                    $sql = "SELECT * FROM formulario";
+                    $sql = "SELECT *, TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) AS idade FROM formulario";
                     $result = $conn->query($sql);
-
+                    
                     if ($result->num_rows > 0) {
-                        echo '<ul class="list-group">';
-                        // Loop para exibir cada aluno na lista
-                        while ($row = $result->fetch_assoc()) {
-                          // Verifica o status do aluno
-                          $status = $row["status"] == 1 ? "Ativo" : "Inativo";
-                          $statusBtnText = $row["status"] == 1 ? "Marcar como Inativo" : "Marcar como Ativo";
-                          $statusBtnClass = $row["status"] == 1 ? "btn-danger" : "btn-success";
-                          
-                          // Estiliza o nome do aluno se estiver inativo
-                          $nameStyle = $row["status"] == 0 ? 'style="color: #c0c0c0;"' : '';
-                          
-                          echo '<li class="list-group-item list-group-item-action list-group-item-primary text-center align-items-center">';
-                          echo '<span ' . $nameStyle . '>Nome: ' . $row["nome_completo"] . '</span> | Status: ' . $status;
-                          echo ' | <a class="btn btn-primary btn-sm" href="editar_aluno.php?id=' . $row["id"] . '">Editar</a>';
-                          echo ' | <a class="btn ' . $statusBtnClass . ' btn-sm" href="alterar_status_aluno.php?id=' . $row["id"] . '&status=' . $row["status"] . '">' . $statusBtnText . '</a>';
-                          echo ' | <a class="btn btn-danger btn-sm" href="excluir_aluno.php?id=' . $row["id"] . '">Excluir</a>';
-                          echo '</li>';
+                      echo '<ul class="list-group">';
+                      // Loop para exibir cada aluno na lista
+                      while ($row = $result->fetch_assoc()) {
+                        // Calcula a idade a partir da data de nascimento
+                        $dataNascimento = new DateTime($row["data_nascimento"]);
+                        $hoje = new DateTime();
+                        $intervalo = $dataNascimento->diff($hoje);
+                        $idade = $intervalo->y;
+                    
+                        // Converte a data de registro para o formato desejado (sem a hora)
+                        $dataRegistro = date("d/m/Y", strtotime($row["data_registro"]));
+                    
+                        // Verifica o status do aluno
+                        $status = $row["status"] == 1 ? "Ativo" : "Inativo";
+                        $statusBtnText = $row["status"] == 1 ? "Marcar como Inativo" : "Marcar como Ativo";
+                        $statusBtnClass = $row["status"] == 1 ? "btn-danger" : "btn-success";
+                    
+                        // Estiliza o nome do aluno se estiver inativo
+                        $nameStyle = $row["status"] == 0 ? 'style="background-color: red; color: white; font-size: 18px;"' : 'style="font-size: 18px;"';
+                    
+                        echo '<li class="list-group-item list-group-item-action list-group-item-primary text-center align-items-center">';
+                        echo '<span class="nome-aluno" ' . $nameStyle . '>Nome: ' . $row["nome_completo"] . '</span> | <span class="data-registro">Data Registro: ' . $dataRegistro . '</span> | Idade: ' . $idade . ' anos';
+                        echo ' | Status: ' . $status;
+                        echo ' | <a class="btn btn-primary btn-sm" href="editar_aluno.php?id=' . $row["id"] . '">Editar</a>';
+                        echo ' | <a class="btn ' . $statusBtnClass . ' btn-sm" href="alterar_status_aluno.php?id=' . $row["id"] . '&status=' . $row["status"] . '">' . $statusBtnText . '</a>';
+                        echo ' | <a class="btn btn-danger btn-sm" href="excluir_aluno.php?id=' . $row["id"] . '">Excluir</a>';
+                        echo '</li>';
                       }
-                        echo '</ul>';
+                      echo '</ul>';
                     } else {
-                        echo '<div class="text-center">Nenhum aluno cadastrado.</div>';
+                      echo '<div class="text-center">Nenhum aluno cadastrado.</div>';
                     }
-
+                    
                     // Fecha a conexão com o banco de dados
                     $conn->close();
                     ?>
@@ -156,20 +177,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Script para buscar alunos
-            $("#buscar-aluno-btn").on("click", function() {
-                let inputText = $("#buscar-aluno-input").val().toLowerCase();
-                $(".list-group-item").each(function() {
-                    if ($(this).text().toLowerCase().indexOf(inputText) > -1) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
-                });
+          // Script para buscar alunos
+          $("#buscar-aluno-btn").on("click", function() {
+            let inputText = $("#buscar-aluno-input").val().toLowerCase();
+            $(".list-group-item").each(function() {
+              if ($(this).text().toLowerCase().indexOf(inputText) > -1) {
+                $(this).show();
+              } else {
+                $(this).hide();
+              }
             });
+          });
+        
+          // Script para ordenar os alunos
+          $("#ordenar-por").on("change", function() {
+            let selectedOption = $(this).val();
+          
+            let alunos = $(".list-group").children(".list-group-item").get();
+          
+            if (selectedOption === "alfabetica") {
+              alunos.sort(function(a, b) {
+                let nomeA = $(a).find(".nome-aluno").text().toUpperCase();
+                let nomeB = $(b).find(".nome-aluno").text().toUpperCase();
+                return nomeA.localeCompare(nomeB);
+              });
+            } else if (selectedOption === "data") {
+              alunos.sort(function(a, b) {
+                let dataA = convertToDate($(a).find(".data-registro").text());
+                let dataB = convertToDate($(b).find(".data-registro").text());
+                return dataA - dataB;
+              });
+            }
+          
+            $(".list-group").empty().append(alunos);
+          });
+        
+          // Função para converter a data de "aaaa/mm/dd" para objeto Date
+          function convertToDate(dateString) {
+            const parts = dateString.split('/');
+            const year = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1;
+            const day = parseInt(parts[2], 10);
+            return new Date(year, month, day);
+          }
         });
     </script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
     </section>    
     
 <section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">

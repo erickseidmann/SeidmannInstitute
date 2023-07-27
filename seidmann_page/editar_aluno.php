@@ -42,7 +42,7 @@
       <div class="container">
         <div class="navbar-brand">
           <span class="navbar-logo">
-            <a href="https://mobiri.se">
+            <a href="index.html">
               <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
             </a>
           </span>
@@ -75,29 +75,16 @@
             <li class="nav-item">
               <a class="nav-link link text-black text-primary display-4" href="listar_alunos.php">listar</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </section>
-  <section data-bs-version="5.1" class="info3 cid-tkzhgHSUx7" id="info3-t">
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(53, 53, 53);"></div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="card col-12 col-lg-10">
-          <div class="card-wrapper">
-            <div class="card-box align-center">
-              <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>Inglês para alcançar o mundo!</strong></h4>
-              <div class="mbr-section-btn mt-3">
-                <a class="btn btn-warning-outline display-4" href="https://wa.me/5519988279707" target="_blank">Falar com a Direção!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <h1>Editar Aluno</h1>
+
+    
     <?php
     // Inclua o arquivo de configuração do banco de dados
     require_once "config.php";
@@ -118,14 +105,18 @@
             // Exibe o formulário preenchido com os dados do aluno
             ?>
         <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
-            <form class="container " action="salvar_edicao_aluno.php" method="post">
+        
+            <form class="container " action="salvar_edicao_aluno.php?id=valor_do_id" method="post">
             <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-6 ">
-            <label for="nome_completo" class="form-label ">Numero de  matricula:</label>
-                <input type="number" id="id" name="id" class="form-control bg-light" value="<?php echo $row["id"]; ?>" disabled="">
-            </div>
+            <h1>Editar Aluno</h1>
             <p></p>
-            </div>
+            <div class="col-md-2 ">
+            
+          <label>Número de Matrícula:</label>
+          <input type="text" name="numero_matricula" id="numero_matricula" value="<?php echo $row["numero_matricula"]; ?>"  class="form-control bg-light" readonly>
+          </div>
+          </div>
+          <p></p>
 
                 <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-6 ">
