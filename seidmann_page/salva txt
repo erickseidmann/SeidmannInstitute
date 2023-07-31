@@ -1,4 +1,4 @@
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,11 +80,11 @@
         <div class="row form-cadastro justify-content-center">
             <div class="col-6 aling-self-center bg-white">
                 <div class="row justify-content-center mb-4">
-                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Dados do aluno atualizados com sucesso!</h1>
+                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Matrícula realizada com sucesso!</h1>
                         <div class="d-flex justify-content-evenly ">
                             <div>
-                            <a href="listar_alunos.php"> <button type="button" class=" btn btn-info btn-lg"> 
-                            voltar para lista </button> </a>         
+                            <a href="cadastro.php"> <button type="button" class=" btn btn-info btn-lg"> 
+                            Novo Usuario </button> </a>         
                             </div>
     
                             <div >

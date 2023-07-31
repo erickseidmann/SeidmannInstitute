@@ -50,113 +50,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO formulario ( nome_completo, nome_responsavel, cpf, telefone, data_nascimento, email, cep, logradouro, cidade, estado, bairro, numero, complemento, valor_combinado, termos_condicoes, cancelamento_curso, ferias, opcao_livro, material, dia_pagamento, lembrete, opcao_pagamento, frequencia_aulas, melhores_horarios, dia_semana, nome_vendedor, numero_matricula)
             VALUES ( '$nome_completo', '$nome_responsavel', '$cpf', '$telefone', '$data_nascimento', '$email', '$cep', '$logradouro', '$cidade', '$estado', '$bairro', '$numero', '$complemento', '$valor_combinado', '$termos_condicoes', '$cancelamento_curso', '$ferias', '$opcao_livro', '$material', '$dia_pagamento', '$lembrete', '$opcao_pagamento', '$frequencia_aulas', '$melhores_horarios', '$dia_semana', '$nome_vendedor', '$numero_matricula')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo " Matrícula realizada com sucesso!";
+//    if ($conn->query($sql) === TRUE) {
+//        echo " Matrícula realizada com sucesso!";
+//    } else {
+//        echo "Erro ao enviar o formulário: " . $conn->error;
+//    }
+//
+//    // Fecha a conexão com o banco de dados
+//    $conn->close();
+//}
+require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+require 'vendor/autoload.php';
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+    // Configurações do servidor de e-mail
+    $mail->isSMTP();
+    $mail->Host       = 'mail.seidmanninstitute.com'; // Insira o host do servidor de e-mail
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'gestao@seidmanninstitute.com'; // Insira o e-mail do remetente
+    $mail->Password   = '37216744*CaCo'; // Insira a senha do remetente
+    $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    // Remetente e destinatário
+    $mail->setFrom('seidmanninstitute@seidmanninstitute.com.br', 'Gestão de Aulas'); // Insira o e-mail e nome do remetente
+    $mail->addAddress($email); // Utiliza o e-mail do usuário matriculado como o endereço de e-mail do destinatário
+    $mail->addAddress('seidmanninstitute@seidmanninstitute.com.br'); // Adiciona o endereço de e-mail para a cópia do e-mail
+
+    // Conteúdo do e-mail
+    $mail->isHTML(true);
+    $mail->Subject = 'Sua Matricula Seidmann'; // Assunto do e-mail
+
+    // Corpo do e-mail (conteúdo do formulário)
+    $body = "
+        <h2>Dados da Matricula</h2>
+        <p> A equipe Seidmann, sente muita alegria e satisfação por ter você estudando, 
+        crescendo e aprendendo conosco e queremos que saiba que estaremos dando nosso melhor 
+        para ajudar você a realizar seus sonhos e suas metas de aprender um novo idioma. 
+        E para melhor atender nossos alunos(as), segue alguns importantes tópicos e regras 
+        sobre pagamentos e cancelamentos de aulas, por favor caso tenha qualquer dúvida entrar em contato com a escola. 
+        Att. Equipe Seidmann </p>
+        <p>Nome Completo: $nome_completo</p>
+        <p>Matricula: $numero_matricula</p>
+        <h5>Dia do pagamento: Todos os pagamentos devem ser realizados até o dia acordado pelo aluno e o professor, caso caia em fim de semana ou feriado, devera ser feito no próximo dia.
+            Valores para cursos individuais: Valor hora/aula R$ 65,00; Valor, mensalidade para 1 h semanal R$ 260,00; Valor, mensalidade para 2 hs semanal R$ 500,00; valor, mensalidade para 2,5hs semanal R$ 600,00. Para cursos em grupos: Valor mensalidade para 2 hs semanal R$ 230,00 Valor, mensalidade para 2,5hs semanal R$ 280,00 POR integrante.
+            **VALORES DE COMBOS DEVEM SER ESPECIFICADOS***
+            Caso o aluno(a) não notifique a escola do atraso do pagamento, o aluno(a) fica sujeito a perca de descontos na mensalidade, ou seja, é cobrado a mensalidade sem descontos.</h5>
+        <p>CPF: $cpf</p>
+        <p>Telefone: $telefone</p>
+        <p>E-mail: $email</p>
+        <p>Endereço: $logradouro, $numero, $bairro, $cidade - $estado</p>
+        <!-- Insira os demais campos do formulário aqui -->
+    ";
+
+    $mail->Body = $body;
+
+    // Envio do e-mail
+    if ($mail->send()) {
+        echo "Matrícula realizada com sucesso! Um e-mail com os dados do formulário foi enviado.";
     } else {
-        echo "Erro ao enviar o formulário: " . $conn->error;
+        echo "Erro ao enviar o e-mail: " . $mail->ErrorInfo;
     }
 
     // Fecha a conexão com o banco de dados
     $conn->close();
 }
+
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.6.8, mobirise.com">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image:src" content="">
-  <meta property="og:image" content="">
-  <meta name="twitter:title" content="Blog">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>Cadastro</title>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pkubebP0x8l7s5bq4XgzLgvs5pP5Dpr8U0I6k7+4JcYKzzw3k0CGPlFElN4Q8RzO" crossorigin="anonymous"></script>
-  <link rel="shortcut icon" href="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <meta name="description" content="">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  <link rel="stylesheet" href="/seidmann_page/style/style.css">
-  <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"> </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-
-  <script src="JS/app.js"></script>
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <section data-bs-version="5.1" class="menu cid-tkzhgMMrxs" once="menu" id="menu1-x">
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-brand">
-          <span class="navbar-logo">
-            <a href="https://mobiri.se">
-              <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
-            </a>
-          </span>
-          <span class="navbar-caption-wrap">
-            <a class="navbar-caption text-black text-primary display-7" href="http://seidmanninstitute.com/">SEIDMANN INSTITUTE</a>
-          </span>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="formularios.html">Formulários</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </section>
-  <section data-bs-version="5.1" class="info3 cid-tkzhgHSUx7" id="info3-t">
-<div class="container ">
-        <div class="row form-cadastro justify-content-center">
-            <div class="col-6 aling-self-center bg-white">
-                <div class="row justify-content-center mb-4">
-                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Matrícula realizada com sucesso!</h1>
-                        <div class="d-flex justify-content-evenly ">
-                            <div>
-                            <a href="cadastro.php"> <button type="button" class=" btn btn-info btn-lg"> 
-                            Novo Usuario </button> </a>         
-                            </div>
-    
-                            <div >
-                            <a href="https://www.google.com/"> <button type="button" class=" btn btn-danger btn-lg"> 
-                            Sair </button> </a>         
-                            </div>
-                        </div>
-                </div>    
-            </div>
-        </div> 
-</div>      
-</body>
-</html>

@@ -33,6 +33,8 @@
  
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+
     
 </head>
 <body>
@@ -110,16 +112,21 @@
                         </div>
                     </div>
 
-                    <div class="row input-group col-md-8 fw-semibold ">
-                        <div class="col-md-2 ">
+                    <div class="row input-group col-md-12 fw-semibold ">
+                        <div class="col-md-3 ">
                         <label class="input-group-text" for="ordenar-por">Ordenar por:</label>
                         <select class="form-select" id="ordenar-por">
                             <option value="alfabetica">Ordem Alfabética</option>
                             <option value="data">Data de Registro</option>
                         </select>
-                    </div>
-                    </div>
+                        </div>
+                        <div class="col-md-6">
+                          <button class="btn btn-success" id="exportar-excel-btn">Exportar em Excel</button>
+                        </div>
                     <p></p>
+                    
+                    </div>
+
                     <?php
                     // Inclua o arquivo de configuração do banco de dados
                     require_once "config.php";
@@ -222,6 +229,42 @@
           }
         });
     </script>
+
+<script>
+  $(document).ready(function() {
+    // Função para exportar os dados dos alunos em formato Excel
+    $("#exportar-excel-btn").on("click", function() {
+      // Consulta todos os alunos na tabela "formulario"
+      $.ajax({
+        url: "exportar_dados_alunos.php", // Crie um novo arquivo PHP para gerar o arquivo Excel
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+          // Chamada de função para gerar o arquivo Excel com os dados recebidos
+          gerarExcel(data);
+        },
+        error: function() {
+          alert("Erro ao exportar os dados em Excel.");
+        }
+      });
+    });
+
+    // Função para gerar o arquivo Excel com os dados dos alunos
+    function gerarExcel(data) {
+      const workSheet = XLSX.utils.json_to_sheet(data);
+      const workBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workBook, workSheet, "Alunos");
+
+      // Cria o nome do arquivo com a data atual
+      const date = new Date();
+      const fileName = "alunos_" + date.toISOString().slice(0, 10) + ".xlsx";
+
+      // Salva o arquivo Excel e faz o download
+      XLSX.writeFile(workBook, fileName);
+    }
+  });
+</script>
+
     
     </section>    
     
