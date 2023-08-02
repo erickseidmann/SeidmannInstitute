@@ -92,6 +92,10 @@
               <a class="nav-link link text-black text-primary display-4" href="cadastro.html">Matrícula</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="registros/reg_aulas.php">Registros de Aulas</a>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -269,9 +273,14 @@
             <br>
   
 
-                <h3 class="text-center">Cancelamento do curso:</h3>
-                <h5 class="lh-base p-3 mb-2 bg-light text-dark">O cancelamento do Curso deve ser realizado com ao menos uma semana antes da data de pagamento mensal, caso contrario  será cobrado uma taxa referente a uma semana de aula.</h5>
+                <h3 class="text-center">Cancelamento do curso e trocas de horarios</h3>
+                <h5 class="lh-base p-3 mb-2 bg-light text-dark">Quanto à troca de horário e reposição de aulas, solicitamos que os alunos entrem em contato com nossa equipe de gestão de aulas para efetuar qualquer alteração. As reposições devem ser realizadas dentro do prazo de até 1 (um) mês, pois, caso não sejam agendadas nesse período, a aula será considerada como perdida, não sendo possível acumulá-la para o mês seguinte. No entanto, fazemos exceções para cancelamentos de longa duração notificados com, pelo menos, 1 mês de antecedência.
+
+Além disso, ressaltamos que o cancelamento do curso deve ser comunicado com pelo menos uma semana de antecedência em relação à data de pagamento mensal. Caso o cancelamento ocorra fora desse prazo, será aplicada uma taxa referente a uma semana de aulas.</h5>
                 <br>
+                <h3 class="text-center">Cancelamento de aulas</h3>
+                <h5 class="lh-base p-3 mb-2 bg-light text-dark"> A fim de garantir a qualidade de nossos serviços educacionais, solicitamos que qualquer cancelamento de aula seja feito com, no mínimo, 6 horas de antecedência. Caso não seja possível efetuar o cancelamento dentro desse prazo, a aula será considerada como realizada. Além disso, todos os alunos têm direito a uma aula emergencial por mês, que pode ser cancelada com até 30 minutos de antecedência. Valorizamos o compromisso e o respeito com nossos horários de aulas para proporcionar uma experiência de aprendizado satisfatória para todos os nossos alunos.
+</h5>
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="cancelamento_curso" name="cancelamento_curso[]" value="sim" required>
                 <label class="form-check-label" for="cancelamento_curso">Entendo e concordo. </label><br>
@@ -321,7 +330,7 @@
           
           <h5 class="lh-base p-3 mb-2 bg-light text-dark">A data deve ser a mesma acordada com professor, qualquer dúvida por favor entre em contato com o seu professor. *** Deve ser ao menos um dia antes do início das aulas **</h5>
           <div class="col-md-3">
-          <label for="dia_pagamento">Dia acordado de pagamento da mensalidade:</label>
+          <label for="dia_pagamento">Data de pagamento:</label>
           <input class="form-control bg-light" type="date" id="dia_pagamento" name="dia_pagamento" required><br>
         </div>
         </div>
@@ -383,7 +392,7 @@
        
 
         <div class="col-md-3 ">
-          <label for="melhores_horarios">Melhores horários (trabalhamos das 7:00 as 21:30):</label>
+          <label for="melhores_horarios">Melhores horários entre 6:30 as 21:30:</label>
           <input class="form-control bg-light" id="melhores_horarios" name="melhores_horarios" rows="4" cols="50" required></input><br>
         </div>
         <br>
@@ -393,8 +402,8 @@
           <p></p>
           <div class="row input-group col-md-6 fw-semibold ">
               <div class="col-md-4 ">
-                <h3>Melhores dias da semana para fazer aula:</h3>
-                <h5>não trabalhamos aos sabados e domingos</h5>
+                
+                <label for="dia_semana">Trabalhamos de Seg. a Sex. quais os melhores dias da semana para você fazer aula:</label>
                 <input class="form-control bg-light" id="dia_semana" name="dia_semana" rows="4" cols="50"></input><br>
               </div>
           </div>
