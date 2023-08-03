@@ -93,7 +93,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="registros/reg_aulas.php">Registros de Aulas</a>
+              <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registros de Aulas</a>
             </li>
 
           </ul>
