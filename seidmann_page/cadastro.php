@@ -89,7 +89,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="cadastro.html">Matrícula</a>
+              <a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a>
             </li>
 
             <li class="nav-item">

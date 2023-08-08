@@ -67,11 +67,15 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="cadastro.html">Matrícula</a>
+              <a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registros de Aulas</a>
+            </li> 
+
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Ver Registros</a>
             </li>
 
           </ul>
@@ -79,29 +83,12 @@
       </div>
     </nav>
   </section>
-  <section data-bs-version="5.1" class="info3 cid-tkzhgHSUx7" id="info3-t">
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(53, 53, 53);"></div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="card col-12 col-lg-10">
-          <div class="card-wrapper">
-            <div class="card-box align-center">
-              <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>Inglês para alcançar o mundo!</strong></h4>
-              <div class="mbr-section-btn mt-3">
-                <a class="btn btn-warning-outline display-4" href="https://wa.me/5519988279707" target="_blank">Falar com a Direção!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 <body>
 <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
     
   
-  <form id="form_reg" class="container " action="processar_formulario.php" method="post">
+  <form id="form_reg" class="container " action="processar_registro.php" method="post">
     <h2>Registros de Aulas</h2>
 
     <p></p>
@@ -109,7 +96,7 @@
     <div class="row input-group col-md-6 fw-semibold ">
 
 
-            <div class="col-md-6 ">
+            <div class="col-md-4 ">
     
 
         <!-- Nome do aluno selecionado após adicionar -->
@@ -117,6 +104,7 @@
 
         <!-- Primeiro select oculto -->
         <label for="aluno">Nome do Aluno:</label>
+        <p></p>
         <select name="aluno" id="aluno" class="form-select bg-light" onchange="buscarEmail(0)">
             <option value="">Selecione um aluno</option>
             <?php
@@ -133,84 +121,136 @@
             }
             ?>
         </select>
-                <p></p>
+        </div>
 
+                <div class="col-md-4 ">
         <label for="email">Email:</label>
+        <p></p>
         <input type="email" name="email" id="email" class="form-control bg-light" readonly>
         <br><br>
+        </div>
 
+        <div class="col-md-6 ">
         <div id="outrosAlunos"></div>
-            <p></p>
+            
         <input type="hidden" id="numAlunos" value="0" class="form-select bg-light">
 
-        <p></p>
+       
 
         <button class="btn btn-primary" type="button" onclick="adicionarAluno()">Adicionar Aluno</button>
         <br><br>
-
-                </div>
+        </div>
+                
         </div>
 
         <!-- Container para adicionar outros alunos, caso a aula seja em grupo -->
 
-
+        <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
 
         <label for="informacoesAula">Informações da Aula:</label>
-        <select name="informacoesAula" id="informacoesAula">
+        <h6>Caso Membro do grupo não compareça nome deve constar na obs dos pais </h6>
+        <p></p>
+        <select name="informacoesAula" id="informacoesAula" class="form-select bg-light">
             <option value="realizada">Realizada</option>
-            <option value="naoCompareceu">Aluno Não Compareceu</option>
+            <option value="MembroGrupo">Membro do Grupo não compareceu </option>
+            <option value="naoCompareceu">Ausente</option>
             <option value="reposicao">Reposição Feita</option>
+            <option value="reposicao">Inicial</option>
         </select>
-        <br><br>
+              </div>
 
-        <label for="teacher">Nome do Teacher:</label>
-        <input type="text" name="teacher" id="teacher">
-        <br><br>
-
-        <label for="dataAula">Data da Aula:</label>
-        <input type="date" name="dataAula" id="dataAula">
-        <br><br>
-
-        <label for="curso">Curso:</label>
-        <select name="curso" id="curso">
-            <option value="ingles">Inglês</option>
-            <option value="espanhol">Espanhol</option>
-        </select>
-        <br><br>
-
-        <label for="livro">Livro:</label>
-        <input type="text" name="livro" id="livro">
-        <br><br>
-
-        <label for="tipoAula">Tipo de Aula:</label>
-        <select name="tipoAula" id="tipoAula">
+            <div class="col-md-4 ">
+            <label for="tipoAula">Tipo de Aula:</label>
+            <p></p>
+            <p></p>
+        <select name="tipoAula" id="tipoAula" class="form-select bg-light">
             <option value="class">Class</option>
             <option value="freeTalk">Free Talk</option>
         </select>
         <br><br>
 
+          </div>
+        </div>
+
+
+        <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
+        <label for="dataAula">Data da Aula:</label>
+        <p></p>
+        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light">
+        <br><br>
+        </div>
+            <div class="col-md-4 ">
+        <label for="curso">Curso:</label>
+        <p></p>
+        <select name="curso" id="curso" class="form-select bg-light">
+            <option value="ingles">Inglês</option>
+            <option value="espanhol">Espanhol</option>
+        </select>
+        <br><br>
+        </div>        
+      </div>
+      <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
+        <label for="livro">Livro:</label>
+        <p></p>
+        <input type="text" name="livro" id="livro" class="form-control bg-light">
+        <br><br>
+        </div>
+            <div class="col-md-4 ">          
+        <label for="teacher">Nome do Teacher:</label>
+        <p></p>
+        <input type="text" name="teacher" id="teacher" class="form-control bg-light">
+        <br><br>
+
+        </div>        
+      </div>
+
+      <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
         <label for="ultimaPagina">Última Página Trabalhada:</label>
-        <input type="text" name="ultimaPagina" id="ultimaPagina">
+        <h6>Se for Free Talk escreva free talk: </h6>
+        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light">
         <br><br>
-
+        </div>
+            <div class="col-md-4 ">    
         <label for="ultimaAtividade">Última Atividade Trabalhada:</label>
-        <input type="text" name="ultimaAtividade" id="ultimaAtividade">
+        <h6>Se for Free Talk escreva free talk: </h6>
+        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light">
         <br><br>
+        </div>        
+      </div>
 
+      <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
         <label for="freeTalkTrabalhado">Free Talk Trabalhado:</label>
-        <input type="text" name="freeTalkTrabalhado" id="freeTalkTrabalhado">
+        <h6>Coloque o link da atividade ou escreva o titulo do texto </h6>
+        <input type="text" name="freeTalkTrabalhado" id="freeTalkTrabalhado" class="form-control bg-light">
         <br><br>
-
+        </div>
+            <div class="col-md-4 ">   
         <label for="homeWork">Home Work:</label>
-        <input type="text" name="homeWork" id="homeWork">
+        <h6>Descrever Claramente o HW </h6>
+        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light">
         <br><br>
-
+        </div>        
+      </div>
         <!-- OBS (only teachers can see) -->
+        <div class="row input-group col-md-6 fw-semibold ">
+            <div class="col-md-4 ">
         <label for="obs">OBS (Apenas para professores):</label>
-        <textarea name="obs" id="obs" rows="4"></textarea>
+        <textarea name="obs" id="obs" rows="4" class="form-control bg-light"></textarea>
         <br><br>
+        </div>        
 
-        <input type="submit" value="Enviar">
+        <div class="col-md-4 ">
+        <label for="obs">OBS para os Pais:</label>
+        <textarea name="obsPais" id="obsPais" rows="4" class="form-control bg-light"></textarea>
+        <br><br>
+        </div> 
+      </div>
+        <input id="botaoEnviar" class="btn btn-primary" type="submit" value="Registrar">
     </form>
 
     <script>

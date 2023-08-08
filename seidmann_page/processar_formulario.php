@@ -50,15 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO formulario ( nome_completo, nome_responsavel, cpf, telefone, data_nascimento, email, cep, logradouro, cidade, estado, bairro, numero, complemento, valor_combinado, termos_condicoes, cancelamento_curso, ferias, opcao_livro, material, dia_pagamento, lembrete, opcao_pagamento, frequencia_aulas, melhores_horarios, dia_semana, nome_vendedor, numero_matricula)
             VALUES ( '$nome_completo', '$nome_responsavel', '$cpf', '$telefone', '$data_nascimento', '$email', '$cep', '$logradouro', '$cidade', '$estado', '$bairro', '$numero', '$complemento', '$valor_combinado', '$termos_condicoes', '$cancelamento_curso', '$ferias', '$opcao_livro', '$material', '$dia_pagamento', '$lembrete', '$opcao_pagamento', '$frequencia_aulas', '$melhores_horarios', '$dia_semana', '$nome_vendedor', '$numero_matricula')";
 
-//    if ($conn->query($sql) === TRUE) {
-//        echo " Matrícula realizada com sucesso!";
-//    } else {
-//        echo "Erro ao enviar o formulário: " . $conn->error;
-//    }
-//
-//    // Fecha a conexão com o banco de dados
-//    $conn->close();
-//}
+    if ($conn->query($sql) === TRUE) {
+        echo " Matrícula realizada com sucesso!";
+    } else {
+        echo "Erro ao enviar o formulário: " . $conn->error;
+    }
+
+    // Fecha a conexão com o banco de dados
+    $conn->close();
+    
 require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 require 'vendor/autoload.php';
@@ -142,7 +142,7 @@ require 'vendor/autoload.php';
     }
 
     // Fecha a conexão com o banco de dados
-    $conn->close();
+   
 }
 
 ?>
