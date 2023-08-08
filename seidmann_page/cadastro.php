@@ -101,23 +101,7 @@
       </div>
     </nav>
   </section>
-  <section data-bs-version="5.1" class="info3 cid-tkzhgHSUx7" id="info3-t">
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(53, 53, 53);"></div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="card col-12 col-lg-10">
-          <div class="card-wrapper">
-            <div class="card-box align-center">
-              <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>Inglês para alcançar o mundo!</strong></h4>
-              <div class="mbr-section-btn mt-3">
-                <a class="btn btn-warning-outline display-4" href="https://wa.me/5519988279707" target="_blank">Falar com a Direção!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
   
        <form id="form" class="container " action="processar_formulario.php" method="post">
@@ -492,4 +476,4 @@ Além disso, ressaltamos que o cancelamento do curso deve ser comunicado com pel
 
 
 </body>
-</html
+</html>
