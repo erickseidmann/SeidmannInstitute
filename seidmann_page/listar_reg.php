@@ -25,7 +25,7 @@ if (!$result) {
   <meta property="og:image" content="">
   <meta name="twitter:title" content="Blog">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>Registro</title>
+  <title>Registro de Aulas</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pkubebP0x8l7s5bq4XgzLgvs5pP5Dpr8U0I6k7+4JcYKzzw3k0CGPlFElN4Q8RzO" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -51,6 +51,16 @@ if (!$result) {
         .ausente {
             background-color: lightcoral;
         }
+
+                /* Estilo para limitar o tamanho das células e esconder o conteúdo excedente */
+        .table-bordered td {
+            max-width: 150px; /* Ajuste o tamanho máximo conforme necessário */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
     </style>
 
 </head>
@@ -90,7 +100,8 @@ if (!$result) {
 <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
     <div class="container">
         <div class="row input-group col-md-6 fw-semibold">
-            <h1>Lista de Registros</h1>
+            <h1 class="text-center">Registro de Aulas</h1>
+            <p></p>
 
             <div class="row input-group col-md-6 fw-semibold ">
             <div class="col-md-4 ">
@@ -133,6 +144,7 @@ if (!$result) {
                         <th>Ultima Pagina Trabalhada</th>
                         <th>Ultima Atividade Trabalhada</th>
                         <th>Obs</th>
+                        <th>obsPais</th>
 
                     </tr>
                 </thead>
@@ -145,7 +157,7 @@ if (!$result) {
                         <?php
                         // Loop através dos registros e exibir na tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $class = ($row['informacoes_aula'] == 'ausente') ? 'ausente' : '';
+                            $class = ($row['informacoes_aula'] == 'naoCompareceu') ? 'ausente' : '';
                             echo "<tr class='$class'>";
                             echo "<td class='aluno'>" . $row['aluno_principal'] . "</td>";
                             echo "<td class='informacoes'>" . $row['informacoes_aula'] . "</td>";
@@ -153,10 +165,13 @@ if (!$result) {
                             echo "<td>" . $row['tipo_aula'] . "</td>";
                             echo "<td>" . $row['livro'] . "</td>";
                             echo "<td>" . $row['ultima_pagina_trabalhada'] . "</td>";
-                            echo "<td>" . $row['ultima_atividade_trabalhada'] . "</td>";
-                            echo "<td>" . $row['obs'] . "</td>";
-                            echo "<td><a href='editar_registro.php?id=" . $row['id'] . "'>Editar</a></td>";
-                            echo "<td><a href='apagar_registro.php?id=" . $row['id'] . "'>Apagar</a></td>";
+                            echo "<td class='expandable'>" . $row['ultima_atividade_trabalhada'] . "</td>";
+                            echo "<td class='expandable'>" . $row['obs'] . "</td>";
+                            echo "<td class='expandable'>" . $row['obsPais'] . "</td>";
+                            // Dentro do loop que exibe os registros
+                            
+                            echo "<td><a href='#' class='excluir-btn' data-id='" . $row['id'] . "'>Apagar</a></td>";
+
                             echo "</tr>";
                         }
                         ?>
@@ -309,8 +324,40 @@ if (!$result) {
       // Salva o arquivo Excel e faz o download
       XLSX.writeFile(workBook, fileName);
     }
+     // Adicione um evento de clique às células que deseja expandir
+     $(".table-bordered td.expandable").click(function () {
+         if ($(this).hasClass("expanded")) {
+             // Se a célula estiver expandida, retorna ao tamanho normal
+             $(this).removeClass("expanded");
+             $(this).css("max-width", "150px"); // Ajuste o tamanho máximo conforme necessário
+         } else {
+             // Se a célula não estiver expandida, expande para mostrar todo o conteúdo
+             $(this).addClass("expanded");
+             $(this).css("max-width", "none");
+         }
+     });
   });
 </script>
+<script>
+    $(document).ready(function () {
+        // Função para verificar a senha antes de excluir um registro
+        function verificarSenha(id) {
+            var senha = prompt("Digite a senha para confirmar a exclusão:");
+            if (senha === "seidmann@123") {
+                window.location.href = 'excluir_registro.php?id=' + id;
+            } else {
+                alert("Senha incorreta. A exclusão não foi realizada.");
+            }
+        }
+
+        // Adicionar evento de clique ao botão de exclusão
+        $(".excluir-btn").click(function () {
+            var id = $(this).data('id');
+            verificarSenha(id);
+        });
+    });
+</script>
+
 
 </body>
 </html>

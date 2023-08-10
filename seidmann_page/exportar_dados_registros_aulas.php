@@ -20,6 +20,7 @@ if ($result->num_rows > 0) {
       "Livro/Book" => $row["livro"],
       "Última Página Trabalhada" => $row["ultima_pagina_trabalhada"],
       "Última Atividade Trabalhada" => $row["ultima_atividade_trabalhada"],
+      "Observação Pais" => $row["obsPais"],
       "Observação" => $row["obs"]
     );
   }
