@@ -88,8 +88,15 @@ if (!$result) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Teachers.php">Login</a></li></ul>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registrar de Aula</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Ver Registros</a>
+                      </li>
+                
+            </div> 
                 
                 
             </div>
@@ -138,6 +145,7 @@ if (!$result) {
                     <tr>
                         <th>Aluno</th>
                         <th>Informações da Aula</th>
+                        <th>Teacher</th>
                         <th>Data da Aula</th>
                         <th>Tipo de Aula</th>
                         <th>Livro/Book</th>
@@ -157,10 +165,11 @@ if (!$result) {
                         <?php
                         // Loop através dos registros e exibir na tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $class = ($row['informacoes_aula'] == 'naoCompareceu') ? 'ausente' : '';
+                            $class = ($row['informacoes_aula'] == 'Ausente') ? 'ausente' : '';
                             echo "<tr class='$class'>";
                             echo "<td class='aluno'>" . $row['aluno_principal'] . "</td>";
                             echo "<td class='informacoes'>" . $row['informacoes_aula'] . "</td>";
+                            echo "<td class='teacher'>" . $row['teacher'] . "</td>";
                             echo "<td class='data'>" . $row['data_aula'] . "</td>";
                             echo "<td>" . $row['tipo_aula'] . "</td>";
                             echo "<td>" . $row['livro'] . "</td>";
@@ -357,6 +366,7 @@ if (!$result) {
         });
     });
 </script>
+
 
 
 </body>

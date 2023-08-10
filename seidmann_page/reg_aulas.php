@@ -71,13 +71,15 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registros de Aulas</a>
+              <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registrar de Aulas</a>
             </li> 
 
             <li class="nav-item">
               <a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Ver Registros</a>
             </li>
 
+            <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a></li>
+                    <li class="nav-item">
           </ul>
         </div>
       </div>
@@ -135,7 +137,7 @@
             
         <input type="hidden" id="numAlunos" value="0" class="form-select bg-light">
 
-       
+       <p></p>
 
         <button class="btn btn-primary" type="button" onclick="adicionarAluno()">Adicionar Aluno</button>
         <br><br>
@@ -153,10 +155,10 @@
         <p></p>
         <select name="informacoesAula" id="informacoesAula" class="form-select bg-light">
             <option value="realizada">Realizada</option>
-            <option value="MembroGrupo">Membro do Grupo não compareceu </option>
-            <option value="naoCompareceu">Ausente</option>
+            <option value="Membro do Grupo não compareceu">Membro do Grupo não compareceu </option>
+            <option value="Ausente">Ausente</option>
             <option value="reposicao">Reposição Feita</option>
-            <option value="reposicao">Inicial</option>
+            <option value="Inicial">Inicial</option>
         </select>
               </div>
 
@@ -283,18 +285,18 @@
         function criarCaixaAluno() {
             var outrosAlunosDiv = document.getElementById("outrosAlunos");
             var alunoContainer = document.createElement("div");
-            alunoContainer.className = "aluno-container";
+            alunoContainer.className = "aluno-container  input-group col-md-30 fw-semibold ";
 
             var novoAlunoSelect = document.createElement("select");
             novoAlunoSelect.name = "outroAlunoNome[]";
-            novoAlunoSelect.className = "aluno-select";
+            novoAlunoSelect.className = "aluno-select form-select bg-light";
             novoAlunoSelect.innerHTML = document.getElementById("aluno").innerHTML;
 
             var novoEmailInput = document.createElement("input");
             novoEmailInput.type = "email";
             novoEmailInput.name = "outroAlunoEmail[]";
             novoEmailInput.placeholder = "Email do Aluno";
-            novoEmailInput.className = "email-input";
+            novoEmailInput.className = "email-input form-select bg-light";
 
             var removerAlunoButton = document.createElement("button");
             removerAlunoButton.type = "button";
