@@ -180,7 +180,7 @@
             <div class="col-md-4 ">
         <label for="dataAula">Data da Aula:</label>
         <p></p>
-        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light">
+        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light" require>
         <br><br>
         </div>
             <div class="col-md-4 ">
@@ -197,13 +197,13 @@
             <div class="col-md-4 ">
         <label for="livro">Livro:</label>
         <p></p>
-        <input type="text" name="livro" id="livro" class="form-control bg-light">
+        <input type="text" name="livro" id="livro" class="form-control bg-light" require>
         <br><br>
         </div>
             <div class="col-md-4 ">          
         <label for="teacher">Nome do Teacher:</label>
         <p></p>
-        <input type="text" name="teacher" id="teacher" class="form-control bg-light">
+        <input type="text" name="teacher" id="teacher" class="form-control bg-light" require>
         <br><br>
 
         </div>        
@@ -213,13 +213,13 @@
             <div class="col-md-4 ">
         <label for="ultimaPagina">Última Página Trabalhada:</label>
         <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light">
+        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light" require>
         <br><br>
         </div>
             <div class="col-md-4 ">    
         <label for="ultimaAtividade">Última Atividade Trabalhada:</label>
         <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light">
+        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light" require>
         <br><br>
         </div>        
       </div>
@@ -234,7 +234,7 @@
             <div class="col-md-4 ">   
         <label for="homeWork">Home Work:</label>
         <h6>Descrever Claramente o HW </h6>
-        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light">
+        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light" require>
         <br><br>
         </div>        
       </div>

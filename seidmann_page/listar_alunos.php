@@ -127,6 +127,24 @@
                     
                     </div>
 
+
+
+
+
+
+            <div style="max-height: 400px; overflow-y: scroll;">
+                 <table border="1" class="table table-bordered border-primary">
+                     <thead>
+                         <tr>
+                             <th>Nome</th>
+                             <th>Data de Registro</th>
+                             <th>Idade</th>
+                             <th>Status</th>
+                         </tr>
+                     </thead>
+                 </table>
+                <table border="1" class="table table-bordered border-primary">
+                    <tbody>
                     <?php
                     // Inclua o arquivo de configuração do banco de dados
                     require_once "config.php";
@@ -150,7 +168,7 @@
                     
                         // Verifica o status do aluno
                         $status = $row["status"] == 1 ? "Ativo" : "Inativo";
-                        $statusBtnText = $row["status"] == 1 ? "Marcar como Inativo" : "Marcar como Ativo";
+                        $statusBtnText = $row["status"] == 1 ? "Inativar" : "Ativar";
                         $statusBtnClass = $row["status"] == 1 ? "btn-danger" : "btn-success";
                     
                         // Estiliza o nome do aluno se estiver inativo
@@ -172,6 +190,11 @@
                     // Fecha a conexão com o banco de dados
                     $conn->close();
                     ?>
+                    </tbody>
+                </table>
+            </div>
+
+
                 </div>
             </div>
         </div>

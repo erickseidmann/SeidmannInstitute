@@ -140,26 +140,29 @@ if (!$result) {
 
 
             <p></p>
+
+
+            <!-- Corpo rolável da tabela -->
+            <div style="max-height: 400px; overflow-y: scroll;">
             <table border="1" class="table table-bordered border-primary">
                 <thead>
                     <tr>
                         <th>Aluno</th>
-                        <th>Informações da Aula</th>
+                        <th>Info da Aula</th>
                         <th>Teacher</th>
                         <th>Data da Aula</th>
                         <th>Tipo de Aula</th>
                         <th>Livro/Book</th>
-                        <th>Ultima Pagina Trabalhada</th>
-                        <th>Ultima Atividade Trabalhada</th>
+                        <th>Ultima Pagina feita</th>
+                        <th>Ultima Atividade feita</th>
+                        <th>HOMEWORK</th>
                         <th>Obs</th>
                         <th>obsPais</th>
+                        <th>APAGAR</th>
 
                     </tr>
                 </thead>
             </table>
-
-            <!-- Corpo rolável da tabela -->
-            <div style="max-height: 400px; overflow-y: scroll;">
                 <table border="1" class="table table-bordered border-primary">
                     <tbody>
                         <?php
@@ -175,6 +178,7 @@ if (!$result) {
                             echo "<td>" . $row['livro'] . "</td>";
                             echo "<td>" . $row['ultima_pagina_trabalhada'] . "</td>";
                             echo "<td class='expandable'>" . $row['ultima_atividade_trabalhada'] . "</td>";
+                            echo "<td class='expandable'>" . $row['home_work'] . "</td>";
                             echo "<td class='expandable'>" . $row['obs'] . "</td>";
                             echo "<td class='expandable'>" . $row['obsPais'] . "</td>";
                             // Dentro do loop que exibe os registros
