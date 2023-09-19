@@ -1,0 +1,11 @@
+header{
+    background-image: url(/seidmann_page/registros_de_aulas/styles/images/navbar.jpg.png) ;
+    background-size: cover;/* ajusta o tamnho da imagem para cobrir todo o cabeçalho */
+    background-repeat: no-repeat;/* impede repetições de imagem*/
+    background-position: center center ;/* centraliza a imagem verticalmente e horizontal*/
+    padding: 10px;/* espaçamento interno*/
+    text-align: center;/* centraliza o conteudo*/
+    color: #333;/*cor do texto*/
+    height: 200px;/* altura do nosso nav bar*/
+}
+
