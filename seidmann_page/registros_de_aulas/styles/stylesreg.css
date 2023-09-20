@@ -1,5 +1,6 @@
+
 header{
-    background-image: url(/seidmann_page/registros_de_aulas/styles/images/navbar.jpg.png) ;
+    background-image: url('images/navbar.png');
     background-size: cover;/* ajusta o tamnho da imagem para cobrir todo o cabeçalho */
     background-repeat: no-repeat;/* impede repetições de imagem*/
     background-position: center center ;/* centraliza a imagem verticalmente e horizontal*/
@@ -9,15 +10,17 @@ header{
     height: 200px;/* altura do nosso nav bar*/
 }
 
+
+
 .sidebar{
     background-color: #333;
     color: white;
     width: 200px;
     position: fixed;
-    top: 0;
+    
     height: 100%;
     overflow: auto;
-    transition: left 0.3s;
+    
 }
 
 /*itens do menu*/
@@ -34,9 +37,7 @@ header{
     background-color: #555; /* Cor de fundo ao passar o mouse */
 }
 
-header:hover + .sidebar {
-    left: 0;
-}
+
 
 .sidebar ul li a {
     text-decoration: none;

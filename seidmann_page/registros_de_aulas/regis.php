@@ -6,7 +6,7 @@
     <title>Seidmann</title>
     <meta name="author" content="Erick Seidmann">
     <meta name="description" content="pagina de registros de aulas feitas pelos professores">
-    <link rel="stylesheet" href="/seidmann_page/registros_de_aulas/styles/stylesreg.css">
+    <link rel="stylesheet" href="styles/stylesreg.css">
 
 </head>
 <body>
