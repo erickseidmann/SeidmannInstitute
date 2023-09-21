@@ -17,7 +17,8 @@ header{
     color: white;
     width: 200px;
     position: fixed;
-    
+    text-align: center;
+    letter-spacing: 2px;
     height: 100%;
     overflow: auto;
     
@@ -44,3 +45,62 @@ header{
     color: white;
 }
 
+.sidebar ul li:not(:last-child) {
+    border-bottom: 1px solid #444; /* Adiciona uma borda inferior cinza entre as li */
+}
+
+main{
+    margin-top: 25px;
+    position: absolute;
+    left: 15%;/* largura da barra lateral*/
+    right: 30%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+main h1{
+    font-size: 30px; /* Tamanho da fonte do h1 */
+    padding: 10px; /* Espaçamento interno do h1 */
+}
+
+#form_reg {
+    width: 150%;
+  
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o seletor de aluno */
+.form-select {
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+
+.form-control {
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Estilo para o rótulo do aluno */
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+.container {
+    
+    
+   
+    box-sizing: border-box;
+}
