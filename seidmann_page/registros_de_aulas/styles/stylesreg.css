@@ -16,7 +16,7 @@ header{
     background-color: #333;
     color: white;
     width: 200px;
-    position: fixed;
+    position: absolute;
     text-align: center;
     letter-spacing: 2px;
     height: 100%;
@@ -49,58 +49,81 @@ header{
     border-bottom: 1px solid #444; /* Adiciona uma borda inferior cinza entre as li */
 }
 
-main{
-    margin-top: 25px;
-    position: absolute;
-    left: 15%;/* largura da barra lateral*/
-    right: 30%;
-    text-align: center;
+/* Estilos para o formulário */
+.form-group {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
-main h1{
-    font-size: 30px; /* Tamanho da fonte do h1 */
-    padding: 10px; /* Espaçamento interno do h1 */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-#form_reg {
-    width: 150%;
-  
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para o seletor de aluno */
-.form-select {
-    width: 25%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-
-.form-control {
-    width: 25%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-/* Estilo para o rótulo do aluno */
+/* Estilos para os campos de entrada e seleção */
 label {
     font-weight: bold;
-    color: #333;
+    flex: 1;
+    margin-right: 10px;
 }
 
-.container {
-    
-    
-   
-    box-sizing: border-box;
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Estilos para os botões */
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para a seção de informações do aluno selecionado */
+.aluno-nome {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilos para as opções de select */
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+}
+
+/* Estilos para a seção de OBS */
+textarea {
+    resize: vertical;
+}
+
+/* Estilos para as mensagens de erro */
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estilos para a seção principal */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
