@@ -15,10 +15,93 @@ if (!$result) {
 
 <!DOCTYPE html>
 
-<?php
-include('header.php'); // Inclui o cabeçalho
-?>
+<head>
+
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.8, mobirise.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="Blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>Registro de Aulas</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pkubebP0x8l7s5bq4XgzLgvs5pP5Dpr8U0I6k7+4JcYKzzw3k0CGPlFElN4Q8RzO" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="/seidmann_page/style/style.css">
+  <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- ... Seu código de cabeçalho ... -->
+    <style>
+        .ausente {
+            background-color: lightcoral;
+        }
+
+                /* Estilo para limitar o tamanho das células e esconder o conteúdo excedente */
+        .table-bordered td {
+            max-width: 150px; /* Ajuste o tamanho máximo conforme necessário */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+    </style>
+
+</head>
 <body>
+<section data-bs-version="5.1" class="menu cid-s48OLK6784" once="menu" id="menu1-h">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="http://seidmanninstitute.com/">SEIDMANN INSTITUTE</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registrar de Aula</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Ver Registros</a>
+                      </li>
+                
+            </div> 
+                
+                
+            </div>
+        </div>
+    </nav>
 
 </section>
 <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
@@ -57,45 +140,38 @@ include('header.php'); // Inclui o cabeçalho
 
 
             <p></p>
-
-
-            <!-- Corpo rolável da tabela -->
             <div style="max-height: 400px; overflow-y: scroll;">
             <table border="1" class="table table-bordered border-primary">
                 <thead>
                     <tr>
                         <th>Aluno</th>
-                        <th>Info da Aula</th>
+                        <th>Informações da Aula</th>
                         <th>Teacher</th>
                         <th>Data da Aula</th>
                         <th>Tipo de Aula</th>
                         <th>Livro/Book</th>
-                        <th>Ultima Pagina feita</th>
-                        <th>Ultima Atividade feita</th>
-                        <th>HOMEWORK</th>
-                        <th>Obs</th>
-                        <th>obsPais</th>
-                        <th>APAGAR</th>
+                        <th>Ultima Pagina Trabalhada</th>
+                        <th>Ultima Atividade Trabalhada</th>
+                        <th>Obs Teacher</th>
+                        <th>obs</th>
 
                     </tr>
                 </thead>
-            </table>
-                <table border="1" class="table table-bordered border-primary">
+
                     <tbody>
                         <?php
                         // Loop através dos registros e exibir na tabela
                         while ($row = mysqli_fetch_assoc($result)) {
                             $class = ($row['informacoes_aula'] == 'Ausente') ? 'ausente' : '';
                             echo "<tr class='$class'>";
-                            echo "<td class='aluno'>" . $row['aluno_principal'] . "</td>";
+                            echo "<td class='aluno expandable'>" . $row['aluno_principal'] . "</td>";
                             echo "<td class='informacoes'>" . $row['informacoes_aula'] . "</td>";
-                            echo "<td class='teacher'>" . $row['teacher'] . "</td>";
+                            echo "<td class='teacher expandable'>" . $row['teacher'] . "</td>";
                             echo "<td class='data'>" . $row['data_aula'] . "</td>";
                             echo "<td>" . $row['tipo_aula'] . "</td>";
                             echo "<td>" . $row['livro'] . "</td>";
                             echo "<td>" . $row['ultima_pagina_trabalhada'] . "</td>";
                             echo "<td class='expandable'>" . $row['ultima_atividade_trabalhada'] . "</td>";
-                            echo "<td class='expandable'>" . $row['home_work'] . "</td>";
                             echo "<td class='expandable'>" . $row['obs'] . "</td>";
                             echo "<td class='expandable'>" . $row['obsPais'] . "</td>";
                             // Dentro do loop que exibe os registros
@@ -111,10 +187,57 @@ include('header.php'); // Inclui o cabeçalho
         </div>
     </div>
 </section>
-<?php
-include('footer.php'); // Inclui o rodapé
-?>
-<section class="display-7" ><p hidden href="https://mobiri.se/2782058" ></a><p hidden> &#8204;</p><a  href="https://mobirise.com/offline-website-builder.html"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/embla/embla.min.js"></script>  <script src="assets/embla/script.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+    <section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">
+
+    
+
+    
+
+<div class="container">
+    <div class="media-container-row align-center mbr-white">
+        <div class="row row-links">
+            <ul class="foot-menu">
+                
+                
+                
+                
+                
+            <li class="foot-menu-item mbr-fonts-style display-7">Email</li><li class="foot-menu-item mbr-fonts-style display-7">Instagram</li><li class="foot-menu-item mbr-fonts-style display-7">Facebook</li></ul>
+        </div>
+        <div class="row social-row">
+            <div class="social-list align-right pb-2">
+                
+                
+                
+                
+                
+                
+            <div class="soc-item">
+                    <a href="http://seidmanninstitute.com/" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social mobi-mbri-arrow-next mobi-mbri"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.facebook.com/Seidmanninstitute" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.youtube.com/channel/UCrVxXG9Z2TqdokA7ST91bcA" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
+                    </a>
+                </div><div class="soc-item">
+                    <a href="https://www.instagram.com/seidmann_institute/" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                    </a>
+                </div></div>
+        </div>
+        <div class="row row-copirayt">
+            <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                © Seidmann Institute All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</div>
+</section><section class="display-7" ><p hidden href="https://mobiri.se/2782058" ></a><p hidden> &#8204;</p><a  href="https://mobirise.com/offline-website-builder.html"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/embla/embla.min.js"></script>  <script src="assets/embla/script.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>

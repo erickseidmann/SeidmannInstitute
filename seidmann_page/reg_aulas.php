@@ -25,7 +25,7 @@ include('header.php'); // Inclui o cabeçalho
         <!-- Primeiro select oculto -->
         <label for="aluno">Nome do Aluno:</label>
         <p></p>
-        <select name="aluno" id="aluno" class="form-select bg-light" onchange="buscarEmail(0)">
+        <select name="aluno" id="aluno" class="form-select bg-light" onchange="buscarEmail(0)" required>
             <option value="">Selecione um aluno</option>
             <?php
             require_once "config.php";
@@ -46,7 +46,7 @@ include('header.php'); // Inclui o cabeçalho
                 <div class="col-md-4 ">
         <label for="email">Email:</label>
         <p></p>
-        <input type="email" name="email" id="email" class="form-control bg-light" readonly>
+        <input type="email" name="email" id="email" class="form-control bg-light" readonly >
         <br><br>
         </div>
 
@@ -71,7 +71,7 @@ include('header.php'); // Inclui o cabeçalho
         <label for="informacoesAula">Informações da Aula:</label>
         <h6>Caso Membro do grupo não compareça nome deve constar na obs dos pais </h6>
         <p></p>
-        <select name="informacoesAula" id="informacoesAula" class="form-select bg-light">
+        <select name="informacoesAula" id="informacoesAula" class="form-select bg-light" required>
             <option value="realizada">Realizada</option>
             <option value="Membro do Grupo não compareceu">Membro do Grupo não compareceu </option>
             <option value="Ausente">Ausente</option>
@@ -84,7 +84,7 @@ include('header.php'); // Inclui o cabeçalho
             <label for="tipoAula">Tipo de Aula:</label>
             <p></p>
             <p></p>
-        <select name="tipoAula" id="tipoAula" class="form-select bg-light">
+        <select name="tipoAula" id="tipoAula" class="form-select bg-light" >
             <option value="class">Class</option>
             <option value="freeTalk">Free Talk</option>
         </select>
@@ -98,7 +98,7 @@ include('header.php'); // Inclui o cabeçalho
             <div class="col-md-4 ">
         <label for="dataAula">Data da Aula:</label>
         <p></p>
-        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light" require>
+        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light" required>
         <br><br>
         </div>
             <div class="col-md-4 ">
@@ -115,13 +115,13 @@ include('header.php'); // Inclui o cabeçalho
             <div class="col-md-4 ">
         <label for="livro">Livro:</label>
         <p></p>
-        <input type="text" name="livro" id="livro" class="form-control bg-light" require>
+        <input type="text" name="livro" id="livro" class="form-control bg-light" required>
         <br><br>
         </div>
             <div class="col-md-4 ">          
         <label for="teacher">Nome do Teacher:</label>
         <p></p>
-        <input type="text" name="teacher" id="teacher" class="form-control bg-light" require>
+        <input type="text" name="teacher" id="teacher" class="form-control bg-light" required>
         <br><br>
 
         </div>        
@@ -131,13 +131,13 @@ include('header.php'); // Inclui o cabeçalho
             <div class="col-md-4 ">
         <label for="ultimaPagina">Última Página Trabalhada:</label>
         <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light" require>
+        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light" required>
         <br><br>
         </div>
             <div class="col-md-4 ">    
         <label for="ultimaAtividade">Última Atividade Trabalhada:</label>
         <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light" require>
+        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light" required>
         <br><br>
         </div>        
       </div>
@@ -146,13 +146,13 @@ include('header.php'); // Inclui o cabeçalho
             <div class="col-md-4 ">
         <label for="freeTalkTrabalhado">Free Talk Trabalhado:</label>
         <h6>Coloque o link da atividade ou escreva o titulo do texto </h6>
-        <input type="text" name="freeTalkTrabalhado" id="freeTalkTrabalhado" class="form-control bg-light">
+        <input type="text" name="freeTalkTrabalhado" id="freeTalkTrabalhado" class="form-control bg-light" required>
         <br><br>
         </div>
             <div class="col-md-4 ">   
         <label for="homeWork">Home Work:</label>
         <h6>Descrever Claramente o HW </h6>
-        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light" require>
+        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light" required>
         <br><br>
         </div>        
       </div>
@@ -165,7 +165,7 @@ include('header.php'); // Inclui o cabeçalho
         </div>        
 
         <div class="col-md-4 ">
-        <label for="obs">OBS para os Pais:</label>
+        <label for="obs">OBS:</label>
         <textarea name="obsPais" id="obsPais" rows="4" class="form-control bg-light"></textarea>
         <br><br>
         </div> 
