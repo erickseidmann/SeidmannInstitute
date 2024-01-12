@@ -25,22 +25,42 @@ include('header.php'); // Inclui o cabeçalho
         <!-- Primeiro select oculto -->
         <label for="aluno">Nome do Aluno:</label>
         <p></p>
+
+
+
         <select name="aluno" id="aluno" class="form-select bg-light" onchange="buscarEmail(0)" required>
-            <option value="">Selecione um aluno</option>
-            <?php
-            require_once "config.php";
-            // Supondo que $conn seja a conexão com o banco de dados
-            $sql = "SELECT nome_completo, email FROM formulario";
-            $result = $conn->query($sql);
-            $alunos = array();
-            while ($row = $result->fetch_assoc()) {
-                $nomeAluno = $row['nome_completo'];
-                $emailAluno = $row['email'];
-                echo "<option value='$nomeAluno'>$nomeAluno</option>";
-                $alunos[$nomeAluno] = $emailAluno;
-            }
-            ?>
+                 <option value="">Selecione um aluno</option>
+                 <?php
+                 require_once "config.php";
+
+                 // Supondo que $conn seja a conexão com o banco de dados
+                 $sql = "SELECT nome_completo, email FROM formulario";
+                 $result = $conn->query($sql);
+
+                 $alunos = array();
+
+                 while ($row = $result->fetch_assoc()) {
+                     $nomeAluno = $row['nome_completo'];
+                     $emailAluno = $row['email'];
+                     $alunos[$nomeAluno] = $emailAluno;
+                 }
+
+                 // Ordenar o array de nomes
+                 ksort($alunos);
+
+                 // Exibir os nomes na opção
+                 $contador = 1;
+                 foreach ($alunos as $nomeAluno => $emailAluno) {
+                     echo "<option value='$nomeAluno'>$contador. $nomeAluno</option>";
+                     $contador++;
+                 }
+                 ?>
         </select>
+
+
+
+
+
         </div>
 
                 <div class="col-md-4 ">
