@@ -123,7 +123,7 @@ require 'vendor/autoload.php';
         <p>A escola não faz ajustes nos valores para os meses de 5 semanas, mas para ajustar o banco de horas, a escola tem duas férias no ano, sendo a última semana do mês de julho e a última semana de dezembro e a primeira de janeiro. Totalizando 3 semanas e dois dias de férias por ano. Qualquer dúvida favor comunicar-se com o professor responsável.</p>
         <p>A escola não trabalha nos feriados nacionais, as únicas aulas que podem ser remanejadas são as aulas de 1 vez por semana.</p>
         <h3>Material:</h3>
-        <p>O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em PDF, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo.</p>
+        <p>O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em forma digital, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo.</p>
         <h3>Lembretes:</h3>
         <p>Os lembretes são enviados sempre um dia antes do vencimento da mensalidade. Caso opte por não receber, é importante lembrar que um atraso não notificado pode resultar em perda do desconto oferecido pela escola.</p>
         

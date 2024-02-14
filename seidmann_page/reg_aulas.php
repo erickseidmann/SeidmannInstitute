@@ -63,7 +63,7 @@ include('header.php'); // Inclui o cabeçalho
 
         </div>
 
-                <div class="col-md-4 ">
+        <div class="col-md-4 ">
         <label for="email">Email:</label>
         <p></p>
         <input type="email" name="email" id="email" class="form-control bg-light" readonly >

@@ -287,7 +287,7 @@ Além disso, ressaltamos que o cancelamento do curso deve ser comunicado com pel
           </div>   
           <br>
           <h3 class="text-center" >Material:</h3>
-          <h5 class="lh-base p-3 mb-2 bg-light text-dark">Material: O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em PDF, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo. *</h5>
+          <h5 class="lh-base p-3 mb-2 bg-light text-dark">Material: O valor do material não está incluso no valor das mensalidades, o material é adquirido com a parceria da EPBL, sendo o preço estabelecido pela EPBL. O valor atual é de R$ 100,00 cada livro (1 ao 8), é possível compras em combo. O material é vendido em forma digital, mas o fornecedor nos dá a opção de enviar o material impresso também. O aluno pode optar. A partir do ano de 2020 todos os materiais só serão entregues depois do envio do valor do mesmo. *</h5>
           <p></p>
 
             
@@ -296,8 +296,8 @@ Além disso, ressaltamos que o cancelamento do curso deve ser comunicado com pel
           <div class="col-md-4 ">
           <select class="form-select bg-light" id="opcao_livro" name="opcao_livro" required>
             <option value="selecione">selecione...</option>
-            <option value="fisico">Livro fisico/ PDF / Audio. R$100,00</option>
-            <option value="PDF">PDF / Audio R$80,00</option>
+            <option value="fisico">Livro fisico/ DIGITAL / Audio. R$100,00</option>
+            <option value="PDF">DIGITAL / Audio R$80,00</option>
           </select><br>
           </div>
           <div class="form-check">
