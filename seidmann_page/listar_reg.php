@@ -35,59 +35,41 @@ include('header.php'); // Inclui o cabeçalho
         }
 
     </style>
-    </style>
+    
 
 </head>
 <body>
-<section data-bs-version="5.1" class="menu cid-s48OLK6784" once="menu" id="menu1-h">
-    
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="index.html">
-                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
-                    </a>
-                </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="http://seidmanninstitute.com/">SEIDMANN INSTITUTE</a></span>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.html">Agenda</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registrar de Aula</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Ver Registros</a>
-                      </li>
-                
-            </div> 
-                
-                
-            </div>
-        </div>
-    </nav>
 
-</section>
 <section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
     <div class="container">
         <div class="row input-group col-md-6 fw-semibold">
-            <h1 class="text-center">Registro de Aulas</h1>
+            <h1 class="text-center">Registro de Aulas ANTIGOS</h1>
             <p></p>
 
+            <?php
+            // Consulta para buscar todos os nomes dos alunos em ordem alfabética
+            $query_alunos = "SELECT nome_completo FROM formulario ORDER BY nome_completo ASC";
+            $result_alunos = mysqli_query($conn, $query_alunos);
+                
+            // Verifica se houve erro na consulta
+            if (!$result_alunos) {
+                die("Erro na consulta de alunos: " . mysqli_error($conn));
+            }
+            ?>
             <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-            <label for="searchAluno">Pesquisar Aluno:</label>
-            <input type="text" id="searchAluno">
+            <div class="col-md-4">
+                <label for="aluno">Selecione um aluno:</label>
+                <select name="aluno" id="aluno" class="form-select bg-light">
+                    <option value="">Selecione um aluno</option>
+                    <?php
+                    // Loop através dos registros de alunos
+                    while ($row_aluno = mysqli_fetch_assoc($result_alunos)) {
+                        $nome_aluno = $row_aluno['nome_completo'];
+                        echo "<option value='$nome_aluno'>$nome_aluno</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
             </div>
             <div class="col-md-3 ">

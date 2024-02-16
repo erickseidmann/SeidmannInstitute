@@ -1,281 +1,236 @@
+<?php
+// Obtenha os dados dos alunos e e-mails do banco de dados ou de onde estiverem disponíveis
+require_once "config.php";
+
+$sql = "SELECT nome_completo, email FROM formulario";
+$result = $conn->query($sql);
+
+$alunos = array();
+
+while ($row = $result->fetch_assoc()) {
+    $nomeAluno = $row['nome_completo'];
+    $emailAluno = $row['email'];
+    $alunos[$nomeAluno] = $emailAluno;
+}
+?>
 <!DOCTYPE html>
 <html>
+
 <?php
 include('header.php'); // Inclui o cabeçalho
 ?>
 
+
+<link rel="stylesheet" href="style/registrar.css">
+<link rel="stylesheet" href="style/registrar-large.css">
 <body>
-<section data-bs-version="5.1" class="features3 cid-tkzhgIxW41" id="features3-u">
-    
-  
-  <form id="form_reg" class="container " action="processar_registro.php" method="post">
-    <h2>Registros de Aulas</h2>
+    <!--start of the tag header-->
+    <header>
+        <!-- aqui vai ficar a imagem-->
+        
+    </header>
+    <!--the end of the tag header-->
+       <!--the start of the tag main-->
+    <main>
+    <h2>New Class Registrations</h2>
 
-    <p></p>
+<!-- Botão "Grupo" para exibir informações dos alunos 2, 3, 4 e 5 -->
+<h2>Se for em grupo clique nesse botão abaixo:</h2>
+<button id="mostrar-grupo">Grupo</button>
+<br>
+<section class="grup" id="group"><!--aqui começa o formulario para a aula em grupo-->
 
-    <div class="row input-group col-md-6 fw-semibold ">
+    <form id="form-group" action="processar-registros-new.php" method="post"><!-- aqui começa o form do -group classes-->
 
+    <div>
+    <h3>Informações do aluno </h3>
+    <label for="nome-1">Nome / Name:</label>
+    <select name="alunos[1][nome]" id="nome-1" class="form-select bg-light">
+        <option value="">Selecione um aluno</option>
+        <?php
+        require_once "config.php";
+        $sql = "SELECT nome_completo, email FROM formulario";
+        $result = $conn->query($sql);
+        $nomes = array(); // Array para armazenar os nomes dos alunos
+        while ($row = $result->fetch_assoc()) {
+            $nomeAluno = $row['nome_completo'];
+            $nomes[] = $nomeAluno; // Adiciona o nome ao array
+        }
+        // Remove duplicatas e reordena o array em ordem alfabética
+        $nomes = array_unique($nomes);
+        sort($nomes);
+        
+        // Itera sobre os nomes para criar as opções do select
+        $count = 1;
+        foreach ($nomes as $nome) {
+            echo "<option value='$nome'>$count. $nome</option>";
+            $count++;
+        }
+        ?>
+    </select>
+    <div>
+                    <label for="info-status-1">Status</label>
+                    <select name="alunos[1][info-status]" id="info-status-1" class="form-select bg-light">
+                        <option selected>Selecione...</option>
+                        <option value="compareceu">Compareceu / showed up</option>
+                        <option value="nao-compareceu">Não compareceu /  Didn't attend</option>
+                        <option value="cancelou">Cancelou / Canceled</option>
+                        <option value="demonstrativa">Demonstrativa / Demonstrative</option>
+                    </select>
+                </div>
+            </div>
+</div>
 
-            <div class="col-md-4 ">
-    
-
-        <!-- Nome do aluno selecionado após adicionar -->
-        <div id="alunoSelecionado" class="aluno-nome"></div>
-
-        <!-- Primeiro select oculto -->
-        <label for="aluno">Nome do Aluno:</label>
-        <p></p>
-
-
-
-        <select name="aluno" id="aluno" class="form-select bg-light" onchange="buscarEmail(0)" required>
-                 <option value="">Selecione um aluno</option>
-                 <?php
-                 require_once "config.php";
-
-                 // Supondo que $conn seja a conexão com o banco de dados
-                 $sql = "SELECT nome_completo, email FROM formulario";
-                 $result = $conn->query($sql);
-
-                 $alunos = array();
-
-                 while ($row = $result->fetch_assoc()) {
-                     $nomeAluno = $row['nome_completo'];
-                     $emailAluno = $row['email'];
-                     $alunos[$nomeAluno] = $emailAluno;
-                 }
-
-                 // Ordenar o array de nomes
-                 ksort($alunos);
-
-                 // Exibir os nomes na opção
-                 $contador = 1;
-                 foreach ($alunos as $nomeAluno => $emailAluno) {
-                     echo "<option value='$nomeAluno'>$contador. $nomeAluno</option>";
-                     $contador++;
-                 }
-                 ?>
-        </select>
-
-
-
-
-
+<!-- Loop para criar as informações de até 5 alunos -->
+<?php for ($i = 2; $i <= 5; $i++): ?>
+    <div class="aluno-info" style="display: none;">
+        <h3>Informações do aluno <?php echo $i; ?></h3>
+        <div>
+            <label for="nome-<?php echo $i; ?>">Nome / Name:</label>
+            <select name="alunos[<?php echo $i; ?>][nome]" id="nome-<?php echo $i; ?>" class="form-select bg-light">
+                <option value="">Selecione um aluno</option>
+                <?php
+                require_once "config.php";
+                $sql = "SELECT nome_completo, email FROM formulario";
+                $result = $conn->query($sql);
+                $nomes = array(); // Array para armazenar os nomes dos alunos
+                while ($row = $result->fetch_assoc()) {
+                    $nomeAluno = $row['nome_completo'];
+                    echo "<option value='$nomeAluno'>$nomeAluno</option>";
+                }
+                ?>
+            </select>
         </div>
-
-        <div class="col-md-4 ">
-        <label for="email">Email:</label>
-        <p></p>
-        <input type="email" name="email" id="email" class="form-control bg-light" readonly >
-        <br><br>
+        <div>
+            <label for="info-status-<?php echo $i; ?>">Status</label>
+            <select name="alunos[<?php echo $i; ?>][info-status]" id="info-status-<?php echo $i; ?>" class="form-select bg-light">
+                <option selected>Selecione...</option>
+                <option value="compareceu">Compareceu / showed up</option>
+                <option value="nao-compareceu">Não compareceu /  Didn't attend</option>
+                <option value="cancelou">Cancelou / Canceled</option>
+                <option value="demonstrativa">Demonstrativa / Demonstrative</option>
+            </select>
         </div>
+    </div>
+<?php endfor; ?>
+</div><!--FIM div info-aluno-->
 
-        <div class="col-md-6 ">
-        <div id="outrosAlunos"></div>
-            
-        <input type="hidden" id="numAlunos" value="0" class="form-select bg-light">
+                                
 
-       <p></p>
 
-        <button class="btn btn-primary" type="button" onclick="adicionarAluno()">Adicionar Aluno</button>
-        <br><br>
-        </div>
+                <div ><!--DIV INFO-AULA-->
+
+                    <h3 >Informaçoes sobre a aula/ Class information </h3>
+                    
+                    <div class="teacher"><!--Div nome do aluno-->
+                        <label for="teacher" required>Professor(a) / Teacher:</label>
+                        <input type="text" id="teacher" name="teacher" required/>
+                    </div><!-- FIM Div nome do aluno-->
+
+
+                    <div class="tempo-aula"><!--Div tempo de aula  -->
+                        <label for="tempo-aula">Tempo da aula / Class time</label>
+                        <select name="tempo-aula" id="tempo-group" class="form-select bg-light" required>
+                        <option value="" disabled selected>Selecione...</option>
+                            <option value="30min">00:30 min</option>
+                            <option value="45min">00:45 min</option>
+                            <option value="60min">1:00 hr</option>
+                            <option value="90min">1:30 hr/min</option>
+                            <option value="120min">2:00 hr</option>
+                        </select>
+                    </div><!-- FIM Div tempo de aula-->
+
+                    <div class="data"><!--Div para a data-->
+                        <label for="data">Data / Date:</label>
+                        <input type="date" id="data" name="data" required />
+                    </div><!-- FIM Div para a data-->
+
+                    <div class="tipo-curso" ><!--Div curso  -->
+                        <label for="tipo-curso">Curso / Course</label>
+                        <select name="tipo-curso" id="tipo-group" class="form-select bg-light" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="ingles">Inglês / English</option>
+                            <option value="espanhol">Espanhol / Spanish</option>
+                            <option value="programacao">Programação / Programming</option>
+                        </select>
+                    </div><!-- FIM Div curso-->
+
+
+                    <div class="tipo-aula" ><!--Div tipo-aula  -->
+                        <label for="tipo-aula">Aula / Class</label>
+                        <select name="tipo-aula" id="aula-group" class="form-select bg-light" required>
+                        <option value="" disabled selected>Selecione...</option>
+                            <option value="book">Book / talk </option>
+                            <option value="free">Free talk</option>
+                            <option value="review">Subject Review</option>
+                        </select>
+                    </div><!-- FIM Div tipo-aula-->
+
+
+                    <div  class="page"><!--Div pagina-->
+                        <label for="page">Ultima Pagina / Last page:</label>
+                        <input type="number" id="page-group" name="page" required/>
+                    </div><!-- FIM Div pagina-->
+
+                    <div class="atividade"><!--Div atividade-->
+                        <label for="atividade">Ultima Atividade / Last activity:</label>
+                        <input type="text" id="page-group-number" name="atividade" required/>
+                    </div><!-- FIM Div atividade-->
+
+                    <div  class="homework"><!--Div atividade-->
+                        <label for="homework">Homework:</label>
+                        <input type="text" id="Homework-group" name="homework" required/>
+                    </div><!-- FIM Div atividade-->
+
+                    <div  class="free-talk"><!--Div free talk-->
+                        <label for="free-talk">Assunto do Free Talk / Free Talk subject:</label>
+                        <input type="text" id="free-group" name="free-talk" />
+                    </div><!-- FIM Div free talk-->
+
+                    <div  class="free-talk-link"><!--Div free talk link-->
+                        <label for="free-talk-link">Free Talk link / Free Talk link:</label>
+                        <input type="text" id="link-group" name="free-link"  />
+                    </div><!-- FIM Div free talk link-->
+
+                    <div ><!--Div  obs-->
+                        <label for="obs">OBS sobre a aula / NOTE about the class:</label>
+                        <textarea id="obs-group" name = "obs"></textarea>
+                    </div><!--FIM Div  obs-->
+                    
+                    <div ><!--Div  INFO PARENTS-->
+                        <label for="info">INFO PARENTS / INFO PARA OS PAIS:</label>
+                        <textarea id="info-group" name="info"></textarea>
+                    </div><!--FIM INFO PARENTS-->
                 
-        </div>
+                </div> <!--FIM DIV INFO-AULA-->
 
-        <!-- Container para adicionar outros alunos, caso a aula seja em grupo -->
+                <div>
+                  <label for="msg">Mensagem:</label>
+                  <textarea id="msg-group" name="msg"></textarea>
+                </div>
 
-        <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
+                <div class="button">
+                  <button type="submit">Registrar Aula</button>
+                </div>
+              </form><!-- aqui termina o form do Group classes-->
+            
+        </section><!--aqui termina o formulario para aula em grupo-->
 
-        <label for="informacoesAula">Informações da Aula:</label>
-        <h6>Caso Membro do grupo não compareça nome deve constar na obs dos pais </h6>
-        <p></p>
-        <select name="informacoesAula" id="informacoesAula" class="form-select bg-light" required>
-            <option value="realizada">Realizada</option>
-            <option value="Membro do Grupo não compareceu">Membro do Grupo não compareceu </option>
-            <option value="Ausente">Ausente</option>
-            <option value="reposicao">Reposição Feita</option>
-            <option value="Inicial">Inicial</option>
-        </select>
-              </div>
-
-            <div class="col-md-4 ">
-            <label for="tipoAula">Tipo de Aula:</label>
-            <p></p>
-            <p></p>
-        <select name="tipoAula" id="tipoAula" class="form-select bg-light" >
-            <option value="class">Class</option>
-            <option value="freeTalk">Free Talk</option>
-        </select>
-        <br><br>
-
-          </div>
-        </div>
+        
 
 
-        <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-        <label for="dataAula">Data da Aula:</label>
-        <p></p>
-        <input type="date" name="dataAula" id="dataAula" class="form-control bg-light" required>
-        <br><br>
-        </div>
-            <div class="col-md-4 ">
-        <label for="curso">Curso:</label>
-        <p></p>
-        <select name="curso" id="curso" class="form-select bg-light">
-            <option value="ingles">Inglês</option>
-            <option value="espanhol">Espanhol</option>
-        </select>
-        <br><br>
-        </div>        
-      </div>
-      <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-        <label for="livro">Livro:</label>
-        <p></p>
-        <input type="text" name="livro" id="livro" class="form-control bg-light" required>
-        <br><br>
-        </div>
-            <div class="col-md-4 ">          
-        <label for="teacher">Nome do Teacher:</label>
-        <p></p>
-        <input type="text" name="teacher" id="teacher" class="form-control bg-light" required>
-        <br><br>
-
-        </div>        
-      </div>
-
-      <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-        <label for="ultimaPagina">Última Página Trabalhada:</label>
-        <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaPagina" id="ultimaPagina" class="form-control bg-light" required>
-        <br><br>
-        </div>
-            <div class="col-md-4 ">    
-        <label for="ultimaAtividade">Última Atividade Trabalhada:</label>
-        <h6>Se for Free Talk escreva free talk: </h6>
-        <input type="text" name="ultimaAtividade" id="ultimaAtividade" class="form-control bg-light" required>
-        <br><br>
-        </div>        
-      </div>
-
-      <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-        <label for="freeTalkTrabalhado">Free Talk Trabalhado:</label>
-        <h6>Coloque o link da atividade ou escreva o titulo do texto </h6>
-        <input type="text" name="freeTalkTrabalhado" id="freeTalkTrabalhado" class="form-control bg-light" required>
-        <br><br>
-        </div>
-            <div class="col-md-4 ">   
-        <label for="homeWork">Home Work:</label>
-        <h6>Descrever Claramente o HW </h6>
-        <input type="text" name="homeWork" id="homeWork" class="form-control bg-light" required>
-        <br><br>
-        </div>        
-      </div>
-        <!-- OBS (only teachers can see) -->
-        <div class="row input-group col-md-6 fw-semibold ">
-            <div class="col-md-4 ">
-        <label for="obs">OBS (Apenas para professores):</label>
-        <textarea name="obs" id="obs" rows="4" class="form-control bg-light"></textarea>
-        <br><br>
-        </div>        
-
-        <div class="col-md-4 ">
-        <label for="obs">OBS:</label>
-        <textarea name="obsPais" id="obsPais" rows="4" class="form-control bg-light"></textarea>
-        <br><br>
-        </div> 
-      </div>
-        <input id="botaoEnviar" class="btn btn-primary" type="submit" value="Registrar">
-    </form>
-
+    </main>   
+    <!--the end of the tag main-->
+    <!-- the start of the tag footer-->
     <script>
-        // Armazenar os alunos e seus respectivos e-mails em um objeto JavaScript
-        var alunosEEmails = <?php echo json_encode($alunos); ?>;
-
-        // Função para buscar o email do aluno selecionado
-        function buscarEmail(index) {
-            var alunoSelect;
-            var emailInput;
-            if (index === 0) {
-                // Se for o primeiro select, usar os elementos originais
-                alunoSelect = document.getElementById("aluno");
-                emailInput = document.getElementById("email");
-            } else {
-                // Para os outros selects, buscar dentro do container de outros alunos
-                alunoSelect = document.getElementById("outrosAlunos").children[index].querySelector(".aluno-select");
-                emailInput = document.getElementById("outrosAlunos").children[index].querySelector(".email-input");
-            }
-            var nomeSelecionado = alunoSelect.value;
-
-            if (nomeSelecionado in alunosEEmails) {
-                emailInput.value = alunosEEmails[nomeSelecionado];
-            } else {
-                emailInput.value = "";
-            }
-        }
-
-        // Função para criar a caixa de e-mail e a caixa de seleção de aluno
-        function criarCaixaAluno() {
-            var outrosAlunosDiv = document.getElementById("outrosAlunos");
-            var alunoContainer = document.createElement("div");
-            alunoContainer.className = "aluno-container  input-group col-md-30 fw-semibold ";
-
-            var novoAlunoSelect = document.createElement("select");
-            novoAlunoSelect.name = "outroAlunoNome[]";
-            novoAlunoSelect.className = "aluno-select form-select bg-light";
-            novoAlunoSelect.innerHTML = document.getElementById("aluno").innerHTML;
-
-            var novoEmailInput = document.createElement("input");
-            novoEmailInput.type = "email";
-            novoEmailInput.name = "outroAlunoEmail[]";
-            novoEmailInput.placeholder = "Email do Aluno";
-            novoEmailInput.className = "email-input form-select bg-light";
-
-            var removerAlunoButton = document.createElement("button");
-            removerAlunoButton.type = "button";
-            removerAlunoButton.className = "remover-aluno-button";
-            removerAlunoButton.textContent = "Remover Aluno";
-            removerAlunoButton.onclick = function() {
-                outrosAlunosDiv.removeChild(alunoContainer);
-                atualizarNumAlunos();
-            };
-
-            alunoContainer.appendChild(novoAlunoSelect);
-            alunoContainer.appendChild(novoEmailInput);
-            alunoContainer.appendChild(removerAlunoButton);
-
-            outrosAlunosDiv.appendChild(alunoContainer);
-
-            // Adicionar evento onchange ao novo select de aluno
-            novoAlunoSelect.onchange = function() {
-                var index = Array.prototype.indexOf.call(outrosAlunosDiv.children, alunoContainer);
-                buscarEmail(index);
-            };
-
-            // Atualizar o e-mail do novo aluno adicionado
-            buscarEmail(outrosAlunosDiv.childElementCount - 1);
-        }
-
-        // Função para adicionar outro aluno (caso a aula seja em grupo)
-        function adicionarAluno() {
-            criarCaixaAluno();
-            atualizarNumAlunos();
-        }
-
-        // Função para atualizar o número de alunos adicionados
-        function atualizarNumAlunos() {
-            var numAlunos = document.getElementById("outrosAlunos").childElementCount;
-            document.getElementById("numAlunos").value = numAlunos;
-        }
+    // Armazenar os alunos e seus respectivos e-mails em um objeto JavaScript
+    
     </script>
-    </section>
-    <?php
-include('footer.php'); // Inclui o rodapé
-?>
+    <script src="scripts/getDate.js"></script>  
+
+     <!-- the end of the tag footer-->
+     
 </body>
+
+
 </html>
