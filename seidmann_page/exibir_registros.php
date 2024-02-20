@@ -130,8 +130,8 @@ include('header.php'); // Inclui o cabeçalho
             $data_inicio_mes = date('Y-m-01', strtotime($mes));
             $data_fim_mes = date('Y-m-t', strtotime($mes));
 
-            // Consulta os registros
-            $sql = "SELECT * FROM aulas_grupo WHERE nome_aluno = '$nome' AND data BETWEEN '$data_inicio_mes' AND '$data_fim_mes'";
+     // Consulta os registros ordenados por data do mais novo para o mais antigo
+            $sql = "SELECT * FROM aulas_grupo WHERE nome_aluno = '$nome' AND data BETWEEN '$data_inicio_mes' AND '$data_fim_mes' ORDER BY data DESC";
             $result = $conn->query($sql);
 
             // Exibe os registros
