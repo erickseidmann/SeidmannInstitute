@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $data = $_POST['data'];
                 $tipo_curso = $_POST['tipo-curso'];
                 $tipo_aula = $_POST['tipo-aula'];
+                $book = $_POST['book'];
                 $pagina = $_POST['page'];
                 $atividade = $_POST['atividade'];
                 $homework = $_POST['homework'];
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mensagem = $_POST['msg'];
 
                 // Execute a sua lógica de inserção no banco de dados aqui
-                $sql = "INSERT INTO aulas_grupo (nome_aluno, info_status, teacher, tempo_aula, data, tipo_curso, tipo_aula, pagina, atividade, homework, free_talk_subject, free_talk_link, obs, info_parents, mensagem) VALUES ('$nome_aluno', '$info_status', '$teacher', '$tempo_aula', '$data', '$tipo_curso', '$tipo_aula', '$pagina', '$atividade', '$homework', '$free_talk_subject', '$free_talk_link', '$obs', '$info_parents', '$mensagem')";
+                $sql = "INSERT INTO aulas_grupo (nome_aluno, info_status, teacher, tempo_aula, data, tipo_curso, tipo_aula, book, pagina, atividade, homework, free_talk_subject, free_talk_link, obs, info_parents, mensagem) VALUES ('$nome_aluno', '$info_status', '$teacher', '$tempo_aula', '$data', '$tipo_curso', '$tipo_aula', '$book','$pagina', '$atividade', '$homework', '$free_talk_subject', '$free_talk_link', '$obs', '$info_parents', '$mensagem')";
 
                 // Execute a consulta SQL
                 if ($conn->query($sql) !== TRUE) {

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <?php
 include('header.php'); // Inclui o cabeçalho
 ?>
-<style>
+    <title>Exibir Registros</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,14 +17,19 @@ include('header.php'); // Inclui o cabeçalho
             flex-direction: column;
         }
 
-        form, table {
+        form, .table-container {
             margin-top: 20px;
-            width: 100%;
-            max-width: 600px;
+            width: 80%; /* Alteração aqui */
+            max-width: 800px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
             background-color: #f9f9f9;
+            overflow: auto;
+        }
+
+        .table-container {
+            overflow-x: auto; /* Adição da barra de rolagem horizontal */
         }
 
         table {
@@ -33,10 +41,26 @@ include('header.php'); // Inclui o cabeçalho
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
         }
 
         table th {
             background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        table td:hover {
+            white-space: normal;
+            word-wrap: break-word;
+            overflow: visible;
+            z-index: 2;
+            background-color: #fff;
         }
 
         button {
@@ -58,6 +82,7 @@ include('header.php'); // Inclui o cabeçalho
             margin-top: 20px;
         }
     </style>
+</head>
 <body>
     <h2>Exibir Registros</h2>
     <form action="exibir_registros.php" method="get">
@@ -112,8 +137,9 @@ include('header.php'); // Inclui o cabeçalho
             // Exibe os registros
             if ($result->num_rows > 0) {
                 echo "<h3>Registros para o Aluno '$nome'</h3>";
+                echo "<div class='table-container'>"; // Adição do contêiner
                 echo "<table border='1'>";
-                echo "<tr><th>Nome do Aluno</th><th>Status</th><th>Teacher</th><th>Tempo de Aula</th><th>Data</th><th>Tipo de Curso</th><th>Tipo de Aula</th><th>Página</th><th>Atividade</th><th>Homework</th><th>Free Talk Subject</th><th>Free Talk Link</th><th>Observações</th><th>Informações dos Pais</th><th>Mensagem</th></tr>";
+                echo "<tr><th>Nome do Aluno</th><th>Status</th><th>Teacher</th><th>Tempo de Aula</th><th>Data</th><th>Tipo de Curso</th><th>Tipo de Aula</th><th>Book</th><th>Página</th><th>Atividade</th><th>Homework</th><th>Free Talk Subject</th><th>Free Talk Link</th><th>Observações</th><th>Informações dos Pais</th><th>Mensagem</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row['nome_aluno'] . "</td>";
@@ -123,6 +149,7 @@ include('header.php'); // Inclui o cabeçalho
                     echo "<td>" . $row['data'] . "</td>";
                     echo "<td>" . $row['tipo_curso'] . "</td>";
                     echo "<td>" . $row['tipo_aula'] . "</td>";
+                    echo "<td>" . $row['book'] . "</td>";
                     echo "<td>" . $row['pagina'] . "</td>";
                     echo "<td>" . $row['atividade'] . "</td>";
                     echo "<td>" . $row['homework'] . "</td>";
@@ -134,6 +161,7 @@ include('header.php'); // Inclui o cabeçalho
                     echo "</tr>";
                 }
                 echo "</table>";
+                echo "</div>"; // Fechamento do contêiner
             } else {
                 echo "<p>Nenhum registro encontrado para o aluno '$nome' no mês selecionado.</p>";
             }
@@ -145,7 +173,5 @@ include('header.php'); // Inclui o cabeçalho
         }
     }
     ?>
-
-
 </body>
 </html>

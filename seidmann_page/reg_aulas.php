@@ -166,6 +166,11 @@ include('header.php'); // Inclui o cabeçalho
                         </select>
                     </div><!-- FIM Div tipo-aula-->
 
+                    <div  class="page"><!--Div Book-->
+                        <label for="Book">Book / Book</label>
+                        <input type="text" id="page-group" name="book" required/>
+                    </div><!-- FIM Div book-->
+
 
                     <div  class="page"><!--Div pagina-->
                         <label for="page">Ultima Pagina / Last page:</label>
