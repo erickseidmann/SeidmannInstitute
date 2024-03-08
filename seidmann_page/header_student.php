@@ -57,13 +57,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Register Class</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="exibir_registros.php">Class Records</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="agenda.php">Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="listar_reg.php">OLD</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="homework.php">Homework</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="homework.php">Prova</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Teachers.php">Login</a></li></ul>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registros de aulas</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="exibir_registros.php">Agendar Avaliação</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.php">Calendario</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Blog</a></li>
               
             </div>
         </div>

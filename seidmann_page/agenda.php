@@ -1,283 +1,284 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendário de aulas</title>
+	
+	
+	<head>
+	<?php
+include('header.php'); // Inclui o cabeçalho
+?>
+		
+		<link href="agenda/css/style.css" rel="stylesheet">
 
-    <!-- Adicionando Bootstrap CSS para uma estética agradável -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container theme-showcase" role="main">
+			<div class="modal-title">
 
-    <style>
-        /* Estilo personalizado para destacar o dia atual */
-        .current-day {
-            background-color: orange;
-            color: white;
-        }
+				<h1>Agendas de aulas</h1>
+				<p></p>
+				<p></p>
+			</div>
+			<div>
 
-        /* Efeito laranja ao passar o mouse sobre os dias */
-        td:hover {
-            background-color: orange;
-            color: white;
-        }
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#home" class="nav-link active" aria-controls="home" role="tab" data-toggle="tab">Controle Geral</a></li>
+				<li role="presentation"><a href="#week1" class="nav-link active" aria-controls="week1" role="tab" data-toggle="tab"  >WEEK 1</a></li>
+				<li role="presentation"><a href="#week2" class="nav-link active" aria-controls="week2" role="tab" data-toggle="tab">WEEK 2</a></li>
+				<li role="presentation"><a href="#settings" class="nav-link active" aria-controls="settings" role="tab" data-toggle="tab">Ainda criando</a></li>
+				<li role="presentation"><a href="#detalhes" class="nav-link active" aria-controls="detalhes" role="tab" data-toggle="tab">Ainda criando</a></li>
+			  </ul>
 
-        /* Cor personalizada para o dia atual */
-        .today {
-            background-color: #FF4500; /* Laranja escuro */
-            color: white;
-        }
+			  <!-- Tab panes -->
+			  <div class="tab-content">
 
-        /* Cor personalizada para feriados */
-        .holiday {
-            background-color: red;
-            color: white;
-        }
 
-        /* Estilo para a lista de feriados na parte inferior */
-        #holiday-info {
-            margin-top: 20px;
-        }
 
-        /* Espaçamento para os botões Adicionar e Excluir Feriado */
-        #add-holiday-btn,
-        #delete-holiday-btn,
-        #visao-semanal-btn {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
 
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Calendário Seidmann Institute</h2>
 
-        <!-- Navegação do Calendário -->
-        <div class="text-center mb-3">
-            <button class="btn btn-warning" onclick="prevMonth()">‹ Mês Anterior</button>
-            <span id="currentMonth" class="h4 mx-4"></span>
-            <button class="btn btn-warning" onclick="nextMonth()">Próximo Mês ›</button>
-        </div>
+				<div role="tabpanel" class="tab-pane active" id="home"><!-- inicio controle geral-->
+				<p></p>
+							<p></p>
+							<h1>controle geral </h1>
 
-        <!-- Calendário -->
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Dom</th>
-                            <th class="text-center">Seg</th>
-                            <th class="text-center">Ter</th>
-                            <th class="text-center">Qua</th>
-                            <th class="text-center">Qui</th>
-                            <th class="text-center">Sex</th>
-                            <th class="text-center">Sáb</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-body">
-                        <!-- Conteúdo do Calendário será inserido aqui dinamicamente -->
-                    </tbody>
-                </table>
-                <div id="holiday-info" class="text-center"></div>
-            </div>
-        </div>
 
-        <!-- Botões Adicionar e Excluir Feriado e Visão Semanal -->
-        <div class="text-center">
-            <button class="btn btn-danger" id="add-holiday-btn" onclick="addHoliday()">Adicionar Feriado</button>
-            <button class="btn btn-danger" id="delete-holiday-btn" onclick="deleteHolidayPrompt()">Excluir Feriado</button>
-            <button class="btn btn-info" id="visao-semanal-btn" onclick="exibirVisaoSemanal()">Visão Semanal</button>
-        </div>
-    </div>
 
-    <!-- Adicionando Bootstrap JS e Popper.js para funcionalidades avançadas -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+				</div><!-- fim controle geral -->
 
-    <!-- Seu JavaScript personalizado -->
-    <script>
-        let currentYear, currentMonth;
 
-        // Lista de feriados (exemplo estático)
-        const holidays = [
-            { day: 1, month: 1, name: 'Ano Novo' },
-            { day: 21, month: 4, name: 'Tiradentes' },
-            { day: 7, month: 9, name: 'Independência do Brasil' },
-            { day: 12, month: 10, name: 'Nossa Senhora Aparecida' },
-            { day: 2, month: 11, name: 'Finados' },
-            { day: 15, month: 11, name: 'Proclamação da República' },
-            { day: 25, month: 12, name: 'Natal' }
-            // Adicione mais feriados conforme necessário
-        ];
 
-        // Funções para navegar entre os meses
-        function nextMonth() {
-            currentMonth++;
-            if (currentMonth > 12) {
-                currentMonth = 1;
-                currentYear++;
-            }
-            updateCalendar();
-        }
+<!--<button class="protectedButton" id="teste" >botão teste</button>-->
+				<div role="tabpanel" class="tab-pane" id="week1"><!-- inicio week 1-->
+					<p></p>
+					<p></p>
+						<h1> Week 1 </h1>
+						<p></p>
+						<p></p>
+						<h1 id="titulo1">Título Dinâmico</h1>
+						<div> 
+						<button  id="alterarBotao1" >Alterar Data</button>					
+						</div>
+						<p></p>
+						<div class="teacher-buttons">
+							<p></p>
+							<div class="teacher" data-password="n8275917" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=0&single=true">
+    							<button class="openIframeButton">Teacher 101</button>                                        
+							</div>
 
-        function prevMonth() {
-            currentMonth--;
-            if (currentMonth < 1) {
-                currentMonth = 12;
-                currentYear--;
-            }
-            updateCalendar();
-        }
 
-        // Função para criar o calendário
-        function createCalendar(year, month) {
-            const firstDay = new Date(year, month - 1, 1);
-            const lastDay = new Date(year, month, 0);
-            const startingDay = firstDay.getDay();
-            const totalDays = lastDay.getDate();
+							<p></p>
+							<div class="teacher" data-password="o7842864" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=351521329&single=true">
+   								 <button class="openIframeButton">Teacher 102</button>                                        
+							</div>
 
-            const calendarBody = document.getElementById('calendar-body');
-            calendarBody.innerHTML = '';
 
-            let currentRow = document.createElement('tr');
+							<p></p>
+							<div class="teacher" data-password="c9601761" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1346479254&single=true">
+    							<button class="openIframeButton">Teacher 103</button>                                        
+							</div>
 
-            // Adiciona dias em branco até o início do mês
-            for (let i = 0; i < startingDay; i++) {
-                const emptyCell = document.createElement('td');
-                emptyCell.textContent = '';
-                currentRow.appendChild(emptyCell);
-            }
 
-            // Adiciona os dias do mês
-            for (let day = 1; day <= totalDays; day++) {
-                const currentCell = document.createElement('td');
-                currentCell.textContent = day;
-                currentCell.addEventListener('mouseover', () => displayHolidays(day, month));
-                currentCell.addEventListener('mouseout', () => hideHolidays());
-                currentRow.appendChild(currentCell);
+							<p></p>
+							<div class="teacher" data-password="m9202930" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1634769332&single=true">
+    							<button class="openIframeButton">Teacher 104</button>                                        
+							</div>
 
-                // Marca o dia atual
-                if (day === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth() + 1) {
-                    currentCell.classList.add('today');
-                }
 
-                // Marca os feriados
-                if (isHoliday(day, month)) {
-                    currentCell.classList.add('holiday');
-                }
+							<p></p>
+							<div class="teacher" data-password="i6924535" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1062914701&single=true">
+    							<button class="openIframeButton">Teacher 105</button>                                        
+							</div>
 
-                // Avança para a próxima linha após adicionar o último dia da semana
-                if ((startingDay + day - 1) % 7 === 6 || day === totalDays) {
-                    calendarBody.appendChild(currentRow);
-                    currentRow = document.createElement('tr');
-                }
-            }
-        }
 
-        // Função para verificar se um dia é feriado
-        function isHoliday(day, month) {
-            return holidays.some(holiday => holiday.day === day && holiday.month === month);
-        }
+							<p></p>
+							<div class="teacher" data-password="e4590214" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=295519619&single=true">
+    							<button class="openIframeButton">Teacher 106</button>                                        
+							</div>
 
-        // Função para exibir os feriados na parte inferior do calendário
-        function displayHolidays(day, month) {
-            const holidayInfo = document.getElementById('holiday-info');
-            const holidayNames = getHolidayNames(day, month);
+							<p></p>
+							<div class="teacher" data-password="x9498047" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1057910724&single=true">
+    							<button class="openIframeButton">Teacher 107</button>                                        
+							</div>
 
-            if (holidayNames.length > 0) {
-                holidayInfo.textContent = `Feriados: ${holidayNames.join(', ')}`;
-            } else {
-                holidayInfo.textContent = '';
-            }
-        }
 
-        // Função para obter os nomes dos feriados
-        function getHolidayNames(day, month) {
-            return holidays.filter(holiday => holiday.day === day && holiday.month === month).map(holiday => holiday.name);
-        }
+							<p></p>
+							<div class="teacher" data-password="n7394842" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=263567102&single=true">
+    							<button class="openIframeButton">Teacher 108</button>                                        
+							</div>
 
-        // Função para ocultar os feriados quando o mouse sai do dia
-        function hideHolidays() {
-            const holidayInfo = document.getElementById('holiday-info');
-            holidayInfo.textContent = '';
-        }
 
-        // Função para atualizar o calendário com base no ano e mês atuais
-        function updateCalendar() {
-            const calendarMonth = document.getElementById('currentMonth');
-            calendarMonth.textContent = `${getMonthName(currentMonth)} ${currentYear}`;
-            createCalendar(currentYear, currentMonth);
-        }
+							<p></p>
+							<div class="teacher" data-password="k3382180" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1938761629&single=true">
+    							<button class="openIframeButton">Teacher 109</button>                                        
+							</div>
 
-        // Função auxiliar para obter o nome do mês com base no índice
-        function getMonthName(monthIndex) {
-            const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-            return monthNames[monthIndex - 1];
-        }
 
-        // Chame markCurrentDay() para marcar o dia atual
-        function markCurrentDay() {
-            const today = new Date();
-            currentYear = today.getFullYear();
-            currentMonth = today.getMonth() + 1;
-            updateCalendar();
-        }
+							<p></p>
+							<div class="teacher" data-password="b2974569" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1858507947&single=true">
+    							<button class="openIframeButton">Teacher 110</button>                                        
+							</div>
 
-        // Função para adicionar feriado
-        function addHoliday() {
-            const holidayName = prompt('Nome do feriado:');
-            const startDayMonth = prompt('Dia e mês de início (no formato DD-MM):');
-            const endDayMonth = prompt('Dia e mês de término (no formato DD-MM):');
 
-            if (holidayName && startDayMonth && endDayMonth) {
-                const [startDay, startMonth] = startDayMonth.split('-').map(item => parseInt(item));
-                const [endDay, endMonth] = endDayMonth.split('-').map(item => parseInt(item));
+							<p></p>
+							<div class="teacher" data-password="s6980095" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=498867843&single=true">
+    							<button class="openIframeButton">Teacher 111</button>                                        
+							</div>
 
-                if (!isNaN(startDay) && !isNaN(startMonth) && !isNaN(endDay) && !isNaN(endMonth) &&
-                    startDay > 0 && startMonth > 0 && endDay > 0 && endMonth > 0) {
 
-                    // Adiciona os dias do intervalo como feriados
-                    for (let day = startDay; day <= endDay; day++) {
-                        holidays.push({ day, month: startMonth, name: holidayName });
-                    }
+							<p></p>
+							<div class="teacher" data-password="q0083702" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1170149450&single=true">
+    							<button class="openIframeButton">Teacher 112</button>                                        
+							</div>
 
-                    // Atualiza o calendário
-                    updateCalendar();
-                } else {
-                    alert('Por favor, insira datas válidas.');
-                }
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
-        }
 
-        // Função para excluir feriado com confirmação do nome
-        function deleteHolidayPrompt() {
-            const holidayNameToDelete = prompt('Nome do feriado a ser excluído:');
-            if (holidayNameToDelete) {
-                deleteHoliday(holidayNameToDelete);
-            }
-        }
+							<p></p>
+							<div class="teacher" data-password="d4629285" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 113</button>                                        
+							</div>
 
-        // Função para excluir feriado
-        function deleteHoliday(name) {
-            // Implemente a lógica para excluir o feriado no banco de dados
-            // Aqui você pode enviar uma solicitação para o servidor ou usar algum mecanismo de armazenamento local
-            holidays = holidays.filter(holiday => holiday.name !== name);
-            alert(`Feriado "${name}" excluído com sucesso!`);
-            // Após excluir, atualize o calendário
-            updateCalendar();
-        }
 
-        // Função para exibir visão semanal
-        function exibirVisaoSemanal() {
-            // Implemente a lógica para exibir a visão semanal aqui
-            alert('Visão Semanal: Implemente a lógica aqui.');
-        }
+							<p></p>
+							<div class="teacher" data-password="l1377883" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 114</button>                                        
+							</div>
 
-        // Inicializar o calendário ao carregar a página
-        markCurrentDay();
-    </script>
 
-</body>
+							<p></p>
+							<div class="teacher" data-password="y9096036" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 115</button>                                        
+							</div>
+						</div>
+
+
+
+
+
+
+				</div><!-- fim week 1-->
+
+
+
+
+				<div role="tabpanel" class="tab-pane" id="week2"> <!-- inicio week 2-->
+					<h1> Week 2 </h1>
+
+					<h1 id="titulo2">Título Dinâmico</h1>
+					<button  id="alterarBotao2" >Alterar Data</button>
+
+					<div class="teacher-buttons">
+							<p></p>
+							<div class="teacher" data-password="n8275917" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=0&single=true">
+    							<button class="openIframeButton">Teacher 101</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="o7842864" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=351521329&single=true">
+   								 <button class="openIframeButton">Teacher 102</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="c9601761" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1346479254&single=true">
+    							<button class="openIframeButton">Teacher 103</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="m9202930" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1634769332&single=true">
+    							<button class="openIframeButton">Teacher 104</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="i6924535" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1062914701&single=true">
+    							<button class="openIframeButton">Teacher 105</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="e4590214" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=295519619&single=true">
+    							<button class="openIframeButton">Teacher 106</button>                                        
+							</div>
+
+							<p></p>
+							<div class="teacher" data-password="x9498047" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1057910724&single=true">
+    							<button class="openIframeButton">Teacher 107</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="n7394842" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=263567102&single=true">
+    							<button class="openIframeButton">Teacher 108</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="k3382180" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1938761629&single=true">
+    							<button class="openIframeButton">Teacher 109</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="b2974569" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1858507947&single=true">
+    							<button class="openIframeButton">Teacher 110</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="s6980095" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=498867843&single=true">
+    							<button class="openIframeButton">Teacher 111</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="q0083702" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1170149450&single=true">
+    							<button class="openIframeButton">Teacher 112</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="d4629285" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 113</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="l1377883" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 114</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="y9096036" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+    							<button class="openIframeButton">Teacher 115</button>                                        
+							</div>
+						</div>
+
+						
+				</div><!-- fim week 2-->
+
+
+
+
+				<div role="tabpanel" class="tab-pane" id="settings">
+					Nunc commodo nisi magna, eget aliquam ex imperdiet sed. Sed sed aliquam leo. Pellentesque interdum vulputate libero, vitae elementum ex. Phasellus non neque ultrices, tristique tellus non, aliquam ante. Integer tincidunt nunc id turpis porttitor, vel elementum tellus lacinia. Cras vestibulum maximus diam id lacinia. Praesent ut eros eu massa viverra porta. Pellentesque ac libero quis orci viverra dapibus et id massa. Nunc ultricies massa at ultricies viverra. Sed congue, dolor sed efficitur tincidunt, turpis ante pellentesque mauris, ut vestibulum dui erat sed leo.
+				</div>
+				<div role="tabpanel" class="tab-pane" id="detalhes">
+					Donec tempus iaculis ex at feugiat. Fusce sit amet erat et sem scelerisque convallis in vel purus. Suspendisse sed enim consectetur, convallis velit eget, finibus sapien. Integer vel nisl eros. Nullam vehicula dictum arcu a iaculis. In hac habitasse platea dictumst. Mauris eu metus ac tellus dictum condimentum.
+				</div>
+			  </div>
+
+			</div>
+		</div>
+		
+		
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="agenda/js/bootstrap.min.js"></script>
+		<script src="agenda/js/scripts.js"></script>
+		
+	</body>
 </html>

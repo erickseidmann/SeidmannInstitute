@@ -1,24 +1,4 @@
-$("#cep").on("change", function () {
 
-    var numCep = $("#cep").val().toString().replace(/-/, '').replace('.', '');
-    var url = "https://viacep.com.br/ws/" + numCep + "/json";
-
-    $.ajax({
-        url: url,
-        type: "get",
-        dataType: "json",
-
-        success: function (dados) {
-            console.log(dados);
-            $("#uf").val(dados.uf);
-            $("#cidade").val(dados.localidade);
-            $("#logradouro").val(dados.logradouro);
-            $("#bairro").val(dados.bairro);
-        }
-    })
-
-
-})
 
 
 /* Obrigatorio CPF, CNPJ , email   */

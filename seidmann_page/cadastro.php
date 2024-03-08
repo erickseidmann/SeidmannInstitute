@@ -163,25 +163,25 @@
                <div class="col-md-6">
                    <label for="cep" class="form-label ">CEP*</label>
                    <input type="text" name="cep" class="form-control bg-light" id="cep"
-                       maxlength="8" onkeyup="mascara_cep()" placeholder="__.___-__" />
+                       maxlength="8" onkeyup="mascara_cep()" placeholder="__.___-__"  required/>
                </div>
                <div class="col-md-6">
                    <label for="logradouro" class="form-label ">Rua*</label>
                    <input type="text" name="logradouro" class="form-control bg-light"
-                       id="logradouro" placeholder="Logradouro" readonly />
+                       id="logradouro" placeholder="Logradouro"  required />
                </div>
         <p></p>
         
                <div class="col-md-6 ">
                    <label for="cidade" class="form-label ">Cidade*</label>
                    <input type="text" name="cidade" class="form-control bg-light" id="cidade"
-                       placeholder="Cidade" readonly />
+                       placeholder="Cidade" required  />
                </div>
                
                <div class="col-md-6 ">
                    <label for="estado" class="form-label ">Estado*</label>
                    <select id="uf" name="estado" class="form-control bg-light"
-                       readonly>
+                       required>
                        <option selected></option>
                        <option value="MG">MG</option>
                        <option value="DF">DF</option>
@@ -216,11 +216,11 @@
                <div class="col-md-6 ">
                    <label for="bairro" class="form-label ">Bairro*</label>
                    <input type="text" name="bairro" class="form-control bg-light" id="bairro" placeholder="Bairro"
-                       readonly />
+                   required />
                </div>
                <div class="col-md-6 ">
                    <label for="numero" class="form-label ">Número*</label>
-                   <input type="number" name="numero" class="form-control bg-light" id="numero" placeholder="Número" />
+                   <input type="number" name="numero" class="form-control bg-light" id="numero" placeholder="Número"  required />
                </div>
               <p></p>
               <div class="col-md-6 ">
@@ -340,8 +340,8 @@ Além disso, ressaltamos que o cancelamento do curso deve ser comunicado com pel
           <div class="col-md-4 ">
           <select id="opcao_pagamento" name="opcao_pagamento" class="form-select bg-light" required>
             <option value="pix">PIX</option>
-            <option  value="boleto">Pagamento por BOLETO (acréscimo de R$2,00)</option>
-            <option value="recorrencia">RECORRÊNCIA (CARTÃO DE CRÉDITO)</option>
+            <option  value="boleto">Pagamento por BOLETO </option>
+            <option value="recorrencia">CARTÃO DE CRÉDITO **tem acréscimo da taxa do cartão de crédito**</option>
           </select><br>
         </div>
         </div>
