@@ -130,3 +130,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.getElementById("btnAlterar").addEventListener("click", function() {
+    var dataReferencia = document.getElementById("dataReferencia").value;
+    salvarDataReferencia(dataReferencia);
+});
+
+function salvarDataReferencia(dataReferencia) {
+    if (!dataReferencia) {
+        console.error("Erro: A data de referência não pode ser vazia.");
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "salvar_data_referencia.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // Resposta do servidor
+                console.log(xhr.responseText);
+                if (xhr.responseText === "success") {
+                    // Mostrar mensagem de sucesso
+                    alert("Alteração feita com sucesso");
+                    // Recarregar a página
+                    window.location.reload();
+                } else {
+                    alert("Alteração feita com sucesso: " + xhr.responseText);
+                }
+            } else {
+                // Exibir mensagem de erro, se houver
+                console.error("Erro ao salvar os dados: " + xhr.statusText);
+            }
+        }
+    };
+    xhr.send("dataReferencia=" + encodeURIComponent(dataReferencia));
+}
+
+
+
