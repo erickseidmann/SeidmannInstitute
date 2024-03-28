@@ -57,10 +57,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Registros de aulas</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="exibir_registros.php">Agendar Avaliação</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="horarios.php">Calendario</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="listar_reg.php">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="alunosview.php">Registros de aulas</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="https://docs.google.com/forms/d/e/1FAIpQLSfCrSP5VCNJx-hkYZvG6N8qaH2Asy-NwJTNE_7ZvbJ9QxsQrA/viewform?usp=sf_link">Agendar Avaliação</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
               
             </div>
         </div>

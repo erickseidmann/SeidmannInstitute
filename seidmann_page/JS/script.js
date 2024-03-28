@@ -7,3 +7,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         document.getElementById('error').textContent = "Please enter username and password.";
     }
 });
+
+
