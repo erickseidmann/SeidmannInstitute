@@ -89,7 +89,7 @@
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Teachers.php">Teachers</a></li>
-                        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="loginstudent.php">Students</a></li></ul>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="loginstudent.php">Students</a></li></ul>
                 
                 
             </div>
@@ -103,12 +103,12 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="login-container col-12 col-md-6 col-lg-4">
       <img src="assets\images\whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Logo" class="figure-img img-fluid rounded">
-      <form action="login.php" method="POST">
+      <form action="loginsenhastudent.php" method="POST">
         <div class="form-group">
-          <input type="text" name="username" placeholder="Número de Registro" class="form-control" required>
+          <input type="text" name="username" placeholder="Email de matrícula" class="form-control" required>
         </div>
         <div class="form-group">
-          <input type="password" name="password" placeholder="Senha" class="form-control" required>
+          <input type="password" name="password" placeholder="Número de matrícula" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Login</button>
       </form>
@@ -170,3 +170,6 @@
   
 </body>
 </html>
+
+
+
