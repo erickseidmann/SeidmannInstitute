@@ -23,7 +23,7 @@ include('header.php'); // Inclui o cabeçalho
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#home" class="nav-link active" aria-controls="home" role="tab" data-toggle="tab">Controle Geral</a></li>
-				<li role="presentation"><a href="#week1" class="nav-link active" aria-controls="week1" role="tab" data-toggle="tab"  >WEEK 1</a></li>
+				<li role="presentation"><a href="#week1" class="nav-link active" aria-controls="week1" role="tab" data-toggle="tab">WEEK 1</a></li>
 				<li role="presentation"><a href="#week2" class="nav-link active" aria-controls="week2" role="tab" data-toggle="tab">WEEK 2</a></li>
 				<li role="presentation"><a href="#week3" class="nav-link active" aria-controls="week3" role="tab" data-toggle="tab">Week 3</a></li>
 				<li role="presentation"><a href="#week4" class="nav-link active" aria-controls="week4" role="tab" data-toggle="tab">week4</a></li>
@@ -40,9 +40,112 @@ include('header.php'); // Inclui o cabeçalho
 
 				<div role="tabpanel" class="tab-pane active" id="home"><!-- inicio controle geral-->
 				<p></p>
-							<p></p>
-							<h1>controle geral </h1>
+					<p></p>
+						<h1> Controle Geral Financeiro</h1>
+						<p></p>
 
+						<p></p>
+    					<!-- Adicionando o campo Data de Referência -->
+    					
+						<form id="formReferencia">
+
+    					
+    					<!-- Fim do campo Data de Referência -->
+    					<p></p>
+    					<p></p>
+
+						<p></p>
+
+						<p></p>
+						<div class="teacher-buttons">
+							<p></p>
+							<div class="teacher" data-password="n8275917" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=0&single=true">
+    							<button class="openIframeButton">Teacher 101</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="o7842864" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=236085353&single=true">
+   								 <button class="openIframeButton">Teacher 102</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="c9601761" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=221458497&single=true">
+    							<button class="openIframeButton">Teacher 103</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="m9202930" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=215604280&single=true">
+    							<button class="openIframeButton">Teacher 104</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="i6924535" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1060852480&single=true">
+    							<button class="openIframeButton">Teacher 105</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="e4590214" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1517127499&single=true">
+    							<button class="openIframeButton">Teacher 106</button>                                        
+							</div>
+
+							<p></p>
+							<div class="teacher" data-password="x9498047" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1011313966&single=true">
+    							<button class="openIframeButton">Teacher 107</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="n7394842" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=2095092249&single=true">
+    							<button class="openIframeButton">Teacher 108</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="k3382180" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1349523418&single=true">
+    							<button class="openIframeButton">Teacher 109</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="b2974569" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1335755615&single=true">
+    							<button class="openIframeButton">Teacher 110</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="s6980095" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1719266389&single=true">
+    							<button class="openIframeButton">Teacher 111</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="q0083702" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=833732467&single=true">
+    							<button class="openIframeButton">Teacher 112</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="d4629285" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=1900760857&single=true">
+    							<button class="openIframeButton">Teacher 113</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="l1377883" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=2018392817&single=true">
+    							<button class="openIframeButton">Teacher 114</button>                                        
+							</div>
+
+
+							<p></p>
+							<div class="teacher" data-password="y9096036" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzfd22tiMQA7nw5C8K7sMuv9Gk3ixReRqaGXrNE2N7u3TMq-yZzDVTG-5GWlYFJRX57QUbZYB9eKik/pubhtml?gid=460275171&single=true">
+    							<button class="openIframeButton">Teacher 115</button>                                        
+							</div>
+						</div>
 
 
 				</div><!-- fim controle geral -->
@@ -71,90 +174,90 @@ include('header.php'); // Inclui o cabeçalho
 						<p></p>
 						<div class="teacher-buttons">
 							<p></p>
-							<div class="teacher" data-password="n8275917" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=0&single=true">
+							<div class="teacher" data-password="n8275917" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=0&single=true">
     							<button class="openIframeButton">Teacher 101</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="o7842864" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=351521329&single=true">
+							<div class="teacher" data-password="o7842864" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=351521329&single=true">
    								 <button class="openIframeButton">Teacher 102</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="c9601761" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1346479254&single=true">
+							<div class="teacher" data-password="c9601761" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1346479254&single=true">
     							<button class="openIframeButton">Teacher 103</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="m9202930" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1634769332&single=true">
+							<div class="teacher" data-password="m9202930" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1634769332&single=true">
     							<button class="openIframeButton">Teacher 104</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="i6924535" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1062914701&single=true">
+							<div class="teacher" data-password="i6924535" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1062914701&single=true">
     							<button class="openIframeButton">Teacher 105</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="e4590214" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=295519619&single=true">
+							<div class="teacher" data-password="e4590214" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=295519619&single=true">
     							<button class="openIframeButton">Teacher 106</button>                                        
 							</div>
 
 							<p></p>
-							<div class="teacher" data-password="x9498047" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1057910724&single=true">
+							<div class="teacher" data-password="x9498047" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1057910724&single=true">
     							<button class="openIframeButton">Teacher 107</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="n7394842" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=263567102&single=true">
+							<div class="teacher" data-password="n7394842" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=263567102&single=true">
     							<button class="openIframeButton">Teacher 108</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="k3382180" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1938761629&single=true">
+							<div class="teacher" data-password="k3382180" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1938761629&single=true">
     							<button class="openIframeButton">Teacher 109</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="b2974569" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1858507947&single=true">
+							<div class="teacher" data-password="b2974569" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1858507947&single=true">
     							<button class="openIframeButton">Teacher 110</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="s6980095" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=498867843&single=true">
+							<div class="teacher" data-password="s6980095" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=498867843&single=true">
     							<button class="openIframeButton">Teacher 111</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="q0083702" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1170149450&single=true">
+							<div class="teacher" data-password="q0083702" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1170149450&single=true">
     							<button class="openIframeButton">Teacher 112</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="d4629285" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+							<div class="teacher" data-password="d4629285" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=1103003004&single=true">
     							<button class="openIframeButton">Teacher 113</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="l1377883" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+							<div class="teacher" data-password="l1377883" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=458506707&single=true">
     							<button class="openIframeButton">Teacher 114</button>                                        
 							</div>
 
 
 							<p></p>
-							<div class="teacher" data-password="y9096036" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPv5G0SRApNwyNkylT5FSv_0daA4939HZfBC6KyXsaZu0YCm-ogj9UiblWPkitPz0K6AT4lCWOwMf/pubhtml?gid=1103003004&single=true">
+							<div class="teacher" data-password="y9096036" data-link="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcj7bwbVSGhzKDj2S4CWnGvtYLegF31t9Ezpc6zfj3Ak7ryPUJj7PaR5wO9tIoW5kEsVsHSyJnmeE/pubhtml?gid=167509194&single=true">
     							<button class="openIframeButton">Teacher 115</button>                                        
 							</div>
 						</div>
