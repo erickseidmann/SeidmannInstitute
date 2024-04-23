@@ -182,10 +182,43 @@ include('header.php'); // Inclui o cabeçalho
                         <input type="text" id="page-group-number" name="atividade" required/>
                     </div><!-- FIM Div atividade-->
 
+
+
+                    <!--Homework-->
+                    <div class="ultimohomework"><!--Div atividade-->
+                        <label for="ultimohomework">Último Homework feito?/ Última tarea hecha?</label>
+                        <select name="ultimohomework" id="ultimohomework" class="form-select bg-light" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                            <option value="naoseaplica">Não se aplica / No se aplica</option>
+                        </select>
+                    </div><!-- FIM Div atividade-->
+
+
+
+                    <div class="homeworkdesignado"><!--Div atividade-->
+                        <label for="homeworkdesignado">Homework designado / Tarea designada / Designated Homework :</label>
+                        <select name="homeworkdesignado" id="homeworkdesignado" class="form-select bg-light" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                            <option value="naoseaplica">Não se aplica / No se aplica</option>
+                        </select>
+                    </div><!-- FIM Div atividade-->
+
                     <div  class="homework"><!--Div atividade-->
-                        <label for="homework">Homework:</label>
+                        <label for="homework"> Qual Homework?</label>
                         <input type="text" id="Homework-group" name="homework" required/>
                     </div><!-- FIM Div atividade-->
+
+
+
+
+
+
+
+
 
                     <div  class="free-talk"><!--Div free talk-->
                         <label for="free-talk">Assunto do Free Talk / Free Talk subject:</label>

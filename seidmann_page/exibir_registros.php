@@ -139,7 +139,7 @@ include('header.php'); // Inclui o cabeçalho
                 echo "<h3>Registros para o Aluno '$nome'</h3>";
                 echo "<div class='table-container'>"; // Adição do contêiner
                 echo "<table border='1'>";
-                echo "<tr><th>Nome do Aluno</th><th>Status</th><th>Teacher</th><th>Tempo de Aula</th><th>Data</th><th>Tipo de Curso</th><th>Tipo de Aula</th><th>Book</th><th>Página</th><th>Atividade</th><th>Homework</th><th>Free Talk Subject</th><th>Free Talk Link</th><th>Observações</th><th>Informações dos Pais</th><th>Mensagem</th></tr>";
+                echo "<tr><th>Nome do Aluno</th><th>Status</th><th>Teacher</th><th>Tempo de Aula</th><th>Data</th><th>Tipo de Curso</th><th>Tipo de Aula</th><th>Book</th><th>Página</th><th>Atividade</th><th>Ultimo HW</th><th>HW designado</th><th>Homework</th><th>Free Talk Subject</th><th>Free Talk Link</th><th>Observações</th><th>Informações dos Pais</th><th>Mensagem</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row['nome_aluno'] . "</td>";
@@ -152,6 +152,8 @@ include('header.php'); // Inclui o cabeçalho
                     echo "<td>" . $row['book'] . "</td>";
                     echo "<td>" . $row['pagina'] . "</td>";
                     echo "<td>" . $row['atividade'] . "</td>";
+                    echo "<td>" . $row['ultimohomework'] . "</td>";
+                    echo "<td>" . $row['homeworkdesignado'] . "</td>";
                     echo "<td>" . $row['homework'] . "</td>";
                     echo "<td>" . $row['free_talk_subject'] . "</td>";
                     echo "<td>" . $row['free_talk_link'] . "</td>";
