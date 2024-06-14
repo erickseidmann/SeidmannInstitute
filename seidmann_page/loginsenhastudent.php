@@ -9,12 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero_matricula = $_POST["password"];
 
     // Query SQL para verificar se o email e a senha correspondem a algum registro na tabela
-    $sql = "SELECT * FROM formulario WHERE email = '$email' AND numero_matricula = '$numero_matricula'";
+    $sql = "SELECT * FROM formulario WHERE  numero_matricula = '$numero_matricula'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
         // Login bem-sucedido, redireciona para a página de sucesso
-        header("Location: alunosview.php");
+        header("Location: dashboard.php");
         exit();
     } else {
         // Login falhou, redireciona de volta para a página de login com uma mensagem de erro

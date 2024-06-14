@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="navbar-brand">
           <span class="navbar-logo">
             <a href="https://mobiri.se">
-              <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
+              <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Seidmann Institute" style="height: 3.8rem;">
             </a>
           </span>
           <span class="navbar-caption-wrap">

@@ -71,7 +71,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="index.html">
-                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
+                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Seidmann Institute" style="height: 3.8rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="http://seidmanninstitute.com/">SEIDMANN INSTITUTE</a></span>
@@ -89,7 +89,7 @@
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page1.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="cadastro.php">Matrícula</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Teachers.php">Teachers</a></li>
-                        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="loginstudent.php">Students</a></li></ul>
+                        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="newlogin/login.php">Students</a></li></ul>
                 
                 
             </div>

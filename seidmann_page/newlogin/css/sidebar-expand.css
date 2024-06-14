@@ -1,0 +1,13 @@
+/* sidebar-expand.css */
+
+@media (max-width: 768px) {
+    #sidebar.expand {
+        width: 100%;
+        min-width: 100%;
+    }
+
+
+    .wrapper.expanded .main {
+        display: block; /* Mostra o conteúdo principal novamente quando a sidebar está recolhida */
+    }
+}

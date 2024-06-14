@@ -42,7 +42,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="index.html">
-                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Mobirise Website Builder" style="height: 3.8rem;">
+                        <img src="assets/images/whatsapp-image-2022-09-13-at-14.34.33-121x121.jpg" alt="Seidmann Institute" style="height: 3.8rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="http://seidmanninstitute.com/">SEIDMANN INSTITUTE</a></span>
@@ -60,9 +60,6 @@
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="reg_aulas.php">Register Class</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="exibir_registros.php">Class Records</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="agenda.php">Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="listar_reg.php">OLD</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="homework.php">Homework</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="homework.php">Prova</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Teachers.php">Login</a></li></ul>
               
             </div>
