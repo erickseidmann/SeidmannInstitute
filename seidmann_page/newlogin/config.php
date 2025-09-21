@@ -4,7 +4,7 @@ session_start(); // Inicia a sessão
 $servername = "localhost"; // substitua pelo nome do seu servidor de banco de dados
 $username = "root"; // substitua pelo seu nome de usuário do banco de dados
 $password = ""; // substitua pela sua senha do banco de dados
-$dbname = "cadastroaluno"; // substitua pelo nome do seu banco de dados
+$dbname = "seidmann_cadastroaluno"; // substitua pelo nome do seu banco de dados
 
 
 //$servername = "inn"; 
